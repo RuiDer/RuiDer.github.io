@@ -165,20 +165,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-first" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-添加hexo-yilia主题的访问数量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/10/first/">第一篇博客</a>
+      <a class="article-title" href="/2018/06/11/添加hexo-yilia主题的访问数量/">添加hexo+yilia主题的访问数量</a>
     </h1>
   
 
         
-        <a href="/2018/06/10/first/" class="archive-article-date">
-  	<time datetime="2018-06-10T02:54:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
+        <a href="/2018/06/11/添加hexo-yilia主题的访问数量/" class="archive-article-date">
+  	<time datetime="2018-06-11T08:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
 </a>
         
 
@@ -187,18 +187,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h1><blockquote>
-<p>因为热爱，所以拼搏。。    –RuiDer   2018-6-11</p>
+        <h1 id="hexo-yilia主题添加文章访问量统计"><a href="#hexo-yilia主题添加文章访问量统计" class="headerlink" title="hexo yilia主题添加文章访问量统计"></a>hexo yilia主题添加文章访问量统计</h1><blockquote>
+<p>因为热爱，所以拼搏。        –RuiDer</p>
 </blockquote>
 <hr>
+<h4 id="前导必备"><a href="#前导必备" class="headerlink" title="前导必备"></a>前导必备</h4><ol>
+<li>Github+hexo主题的个人博客</li>
+<li>Your heart</li>
+</ol>
+<h4 id="hexo添加访问量功能工具"><a href="#hexo添加访问量功能工具" class="headerlink" title="hexo添加访问量功能工具"></a>hexo添加访问量功能工具</h4><blockquote>
+<p>hexo添加访问量统计功能可以用百度的站长统计、leancloud，还有不蒜子，我用的是不蒜子。</p>
+</blockquote>
+<h4 id="引入不蒜子"><a href="#引入不蒜子" class="headerlink" title="引入不蒜子"></a>引入不蒜子</h4><blockquote>
+<p>将下面代码添加在 /themes/yilia/layout/_partial/footer.ejs的末尾</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="添加站点访问量"><a href="#添加站点访问量" class="headerlink" title="添加站点访问量"></a>添加站点访问量</h4><blockquote>
+<p>将下面代码添加在 /themes/yilia/layout/_partial/footer.ejs中末尾。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span> </span><br><span class="line">  本站访客数<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="添加文章访问量"><a href="#添加文章访问量" class="headerlink" title="添加文章访问量"></a>添加文章访问量</h4><blockquote>
+<p>将下面代码添加在 /themes/yilia/layout/_partial/article.ejs 中，位置如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 添加代码  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_page_pv"</span>&gt;</span></span><br><span class="line">   本文总阅读量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- article.ejs自身代码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_page_pv"</span>&gt;</span></span><br><span class="line">   		本文总阅读量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line">	    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-info article-info-index"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%if(post.top)&#123;%</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-pop-out tagcloud"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-tuding"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"article-tag-list-link color3"</span>&gt;</span>置顶<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <blockquote>
-<p>计划两天时间完成个人的blog，一路风雨，终于在今天下午完成博客的基本搭建。</p>
+<p>我们直接就这样放在yilia主题中，首页也会显示该网页的访问量，没法正常使用，所以我加一个判断，如果是首页不显示该文章的访问量，下面这段代码添加在/themes/yilia/layout/_partial/article.ejs的header的日期后面：</p>
 </blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- article自身代码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"article-header"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">title</span>', &#123;<span class="attr">class_name:</span> '<span class="attr">article-title</span>'&#125;) %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">post.noDate</span>)&#123; %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">date</span>', &#123;<span class="attr">class_name:</span> '<span class="attr">archive-article-date</span>', <span class="attr">date_format:</span> <span class="attr">null</span>&#125;) %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">       </span><br><span class="line">	<span class="comment">&lt;!-- 添加代码 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> ( !<span class="attr">index</span> )&#123; %&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"archive-article-date"</span>&gt;</span></span><br><span class="line">			阅读量 <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="作者寄语"><a href="#作者寄语" class="headerlink" title="作者寄语"></a>作者寄语</h4><blockquote>
-<p>如果喜欢，就坚持吧，风雨后见彩虹。不论你是小白，还是经验丰富的老司机，当然，老司机肯定不会被这些小困难难<br>倒。但是，对于初次体验并且上手制作个人博客的你，必然会遇到很多困难，不要怕，坚持就是胜利！今日的奋斗只为明天成功打下基础，相信自己。</p>
+<p>Everything is ok..</p>
 </blockquote>
-<h4 id="我所遇所解"><a href="#我所遇所解" class="headerlink" title="我所遇所解"></a>我所遇所解</h4><p><a href="">记第一次搭建个人博客</a></p>
-<p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
       
 
@@ -211,7 +227,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/10/first/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/11/添加hexo-yilia主题的访问数量/">展开全文 >></a>
         </p>
       
 
@@ -278,6 +294,82 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/06/10/我/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-first" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/10/first/">第一篇博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/10/first/" class="archive-article-date">
+  	<time datetime="2018-06-10T02:54:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h1><blockquote>
+<p>因为热爱，所以拼搏。。    –RuiDer   2018-6-11</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>计划两天时间完成个人的blog，一路风雨，终于在今天下午完成博客的基本搭建。</p>
+</blockquote>
+<h4 id="作者寄语"><a href="#作者寄语" class="headerlink" title="作者寄语"></a>作者寄语</h4><blockquote>
+<p>如果喜欢，就坚持吧，风雨后见彩虹。不论你是小白，还是经验丰富的老司机，当然，老司机肯定不会被这些小困难难<br>倒。但是，对于初次体验并且上手制作个人博客的你，必然会遇到很多困难，不要怕，坚持就是胜利！今日的奋斗只为明天成功打下基础，相信自己。</p>
+</blockquote>
+<h4 id="我所遇所解"><a href="#我所遇所解" class="headerlink" title="我所遇所解"></a>我所遇所解</h4><p><a href="">记第一次搭建个人博客</a></p>
+<p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/10/first/">展开全文 >></a>
         </p>
       
 
