@@ -165,6 +165,183 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JDBC和JNDI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/15/JDBC和JNDI/" class="archive-article-date">
+  	<time datetime="2018-06-14T16:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-15</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JNDI和JDBC"><a href="#JNDI和JDBC" class="headerlink" title="JNDI和JDBC"></a><center>JNDI和JDBC</center></h1><blockquote>
+<p>因为热爱，所以拼搏。        –RuiDer</p>
+</blockquote>
+<hr>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><pre><code>Java Database Connectivity(JDBC)JDBC以一种统一的方式来对各种各样的数据库进行
+存取。和ODBC一样，JDBC为开发人员隐藏了不同数据库的不同特性。另外，由于JDBC建立在
+Java的基础上,因此还提供了数据库存取的平台独立性。JDBC定义了4种不同的驱动程序：
+JDBC-ODBCBridge、JDBC-native driverbridge、JDBC-networkbridge、PureJavadriver。
+在一个多层的企业级应用中，更大的可能是在客户端和一个EJB进行通信，采用EJB建立数据库连接。
+为了实现和改进可伸缩性和系统性能， 也可以采用连接缓冲池（connection pool）优化数据库连接。
+</code></pre><h3 id="JNDI"><a href="#JNDI" class="headerlink" title="JNDI"></a>JNDI</h3><pre><code>Java Naming and Directory Interface (JNDI)JNDI API被用于执行名字和目录服务。
+它提供了一致的模型来存取和操作企业级的资源如DNS和LDAP，本地文件系统，后者在应用服务
+器中的对象。在JNDI中，在目录结构中的每一个结点称为context。每一个JNDI名字都是相对
+于context的。应用可以通过这个初始化的context经有这个目录树来定位它所需要的资源或对象。
+</code></pre><h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><pre><code>JNDI相对与JDBC来说是他的灵活性,程序员不需要关心“具体的数据库后台是什么？JDBC驱动程序
+是什么？JDBC URL格式是什么？访问数据库的用户名和口令是什么？”等等这些问题，程序员编写
+的程序应该没有对 JDBC 驱动程序的引用，没有服务器名称，没有用户名称或口令 —— 甚至没有
+数据库池或连接管理。而是把这些问题交给J2EE容器来配置和管理，程序员只需要对这些配置和管
+理进行引用即可。
+</code></pre>
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/15/JDBC和JNDI/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring-详解-一-概念解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/15/Spring-详解-一-概念解析/" class="archive-article-date">
+  	<time datetime="2018-06-14T16:06:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-15</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring概念解析"><a href="#Spring概念解析" class="headerlink" title="Spring概念解析"></a><center>Spring概念解析</center></h1><hr>
+<blockquote>
+<p>因为热爱，所以拼搏。        –RuiDer</p>
+</blockquote>
+<hr>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><pre><code>&gt; Spring：一个分层架构（结构），一站式的Java开源框架。
+</code></pre><h2 id="分层架构概念"><a href="#分层架构概念" class="headerlink" title="分层架构概念"></a>分层架构概念</h2><blockquote>
+<p>Spring由7个模块组成</p>
+</blockquote>
+<p><img src="https://images2017.cnblogs.com/blog/1120165/201709/1120165-20170902113444874-1912798255.png" alt=""></p>
+<ul>
+<li><p>Spring Core:核心容器，提供了Spring的基本功能，基本组件是BeanFactory,<br>使用SpringIoc控制反转功能将配置信息与依赖规范和程序代码分开。</p>
+</li>
+<li><p>Spring上下文:用于配置信息的组件，包括JDBC，EJB，Email等配置信息的配置。</p>
+</li>
+<li><p>SpringDao：提供了一个有意义的异常结构，负责数据库方面的异常错误以及抛出程序运行时的相关异常。</p>
+</li>
+<li><p>Spring Web：web集成Struts，负责处理多web请求。</p>
+</li>
+<li><p>Spring ORM：提供JDBC，JNDI，Hibernate,orm等数据库事物对象。</p>
+</li>
+<li><p>Spring Aop: 通过配置管理特性，Spring AOP 模块直接将面向切面的编程功能集成到了 Spring 框架中。所以，<br>可以很容易地使 Spring 框架管理的任何对象支持AOP。Spring AOP 模块为基于 Spring 的应用程序中的对象提供<br>了事务管理服务。通过使用 Spring AOP，不用依赖 EJB 组件，就可以将声明性事务管理集成到应用程序中。</p>
+</li>
+<li><p>Spring MVC 框架： MVC框架是一个全功能的构建 Web应用程序的 MVC 实现。通过策略接口，MVC框架变成为<br>高度可配置的，MVC 容纳了大量视图技术，其中包括 JSP、Velocity、Tiles、iText 和 POI。模型由javabean<br>构成，存放于Map；视图是一个接口，负责显示模型；控制器表示逻辑代码，是Controller的实现。Spring框架的功能<br>可以用在任何J2EE服务器中，大多数功能也适用于不受管理的环境。Spring 的核心要点是：支持不绑定到特定 J2EE服务的可重用业务和数据访问对象。毫无疑问，这样的对象可以在不同J2EE 环境（Web 或EJB）、独立应用程序、测试环境之间重用。</p>
+</li>
+</ul>
+<h2 id="一站式"><a href="#一站式" class="headerlink" title="一站式"></a>一站式</h2><blockquote>
+<p>一站式：one stop，就是说Spring是一个完美的服务体系，夸赞语句。</p>
+</blockquote>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/15/Spring-详解-一-概念解析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-EL表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -970,6 +1147,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -982,15 +1163,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: Linux | RuiDer的博客</title>
+  <title>JDBC和JNDI | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我看好自己的认真。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RuiDer的博客">
-<meta property="og:url" content="http://yoursite.com/categories/Linux/index.html">
+  <meta name="description" content="JNDI和JDBC 因为热爱，所以拼搏。        –RuiDer   JDBCJava Database Connectivity(JDBC)JDBC以一种统一的方式来对各种各样的数据库进行 存取。和ODBC一样，JDBC为开发人员隐藏了不同数据库的不同特性。另外，由于JDBC建立在 Java的基础上,因此还提供了数据库存取的平台独立性。JDBC定义了4种不同的驱动程序： JDBC-ODBC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC和JNDI">
+<meta property="og:url" content="http://yoursite.com/2018/06/15/JDBC和JNDI/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="我看好自己的认真。">
+<meta property="og:description" content="JNDI和JDBC 因为热爱，所以拼搏。        –RuiDer   JDBCJava Database Connectivity(JDBC)JDBC以一种统一的方式来对各种各样的数据库进行 存取。和ODBC一样，JDBC为开发人员隐藏了不同数据库的不同特性。另外，由于JDBC建立在 Java的基础上,因此还提供了数据库存取的平台独立性。JDBC定义了4种不同的驱动程序： JDBC-ODBC">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-14T16:13:52.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RuiDer的博客">
-<meta name="twitter:description" content="我看好自己的认真。">
+<meta name="twitter:title" content="JDBC和JNDI">
+<meta name="twitter:description" content="JNDI和JDBC 因为热爱，所以拼搏。        –RuiDer   JDBCJava Database Connectivity(JDBC)JDBC以一种统一的方式来对各种各样的数据库进行 存取。和ODBC一样，JDBC为开发人员隐藏了不同数据库的不同特性。另外，由于JDBC建立在 Java的基础上,因此还提供了数据库存取的平台独立性。JDBC定义了4种不同的驱动程序： JDBC-ODBC">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
   
@@ -163,77 +164,234 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JDBC和JNDI" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/13/Linux常用命令/" class="archive-article-date">
-  	<time datetime="2018-06-13T14:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/15/JDBC和JNDI/" class="archive-article-date">
+  	<time datetime="2018-06-14T16:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-15</time>
 </a>
+        
+
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JNDI和JDBC"><a href="#JNDI和JDBC" class="headerlink" title="JNDI和JDBC"></a><center>JNDI和JDBC</center></h1><blockquote>
+<p>因为热爱，所以拼搏。        –RuiDer</p>
+</blockquote>
+<hr>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><pre><code>Java Database Connectivity(JDBC)JDBC以一种统一的方式来对各种各样的数据库进行
+存取。和ODBC一样，JDBC为开发人员隐藏了不同数据库的不同特性。另外，由于JDBC建立在
+Java的基础上,因此还提供了数据库存取的平台独立性。JDBC定义了4种不同的驱动程序：
+JDBC-ODBCBridge、JDBC-native driverbridge、JDBC-networkbridge、PureJavadriver。
+在一个多层的企业级应用中，更大的可能是在客户端和一个EJB进行通信，采用EJB建立数据库连接。
+为了实现和改进可伸缩性和系统性能， 也可以采用连接缓冲池（connection pool）优化数据库连接。
+</code></pre><h3 id="JNDI"><a href="#JNDI" class="headerlink" title="JNDI"></a>JNDI</h3><pre><code>Java Naming and Directory Interface (JNDI)JNDI API被用于执行名字和目录服务。
+它提供了一致的模型来存取和操作企业级的资源如DNS和LDAP，本地文件系统，后者在应用服务
+器中的对象。在JNDI中，在目录结构中的每一个结点称为context。每一个JNDI名字都是相对
+于context的。应用可以通过这个初始化的context经有这个目录树来定位它所需要的资源或对象。
+</code></pre><h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><pre><code>JNDI相对与JDBC来说是他的灵活性,程序员不需要关心“具体的数据库后台是什么？JDBC驱动程序
+是什么？JDBC URL格式是什么？访问数据库的用户名和口令是什么？”等等这些问题，程序员编写
+的程序应该没有对 JDBC 驱动程序的引用，没有服务器名称，没有用户名称或口令 —— 甚至没有
+数据库池或连接管理。而是把这些问题交给J2EE容器来配置和管理，程序员只需要对这些配置和管
+理进行引用即可。
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>俺的微信，欢迎关注<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/微信1.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/13/Linux常用命令/">Linux常用命令</a>
-    </h1>
-  
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/15/JDBC和JNDI/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/06/15/Spring-详解-一-概念解析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring 详解(一)--概念解析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JNDI和JDBC"><span class="toc-number">1.</span> <span class="toc-text">JNDI和JDBC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC"><span class="toc-number">1.0.1.</span> <span class="toc-text">JDBC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JNDI"><span class="toc-number">1.0.2.</span> <span class="toc-text">JNDI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键"><span class="toc-number">1.0.3.</span> <span class="toc-text">关键</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JDBC和JNDI" data-title="JDBC和JNDI" data-url="http://yoursite.com/2018/06/15/JDBC和JNDI/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/06/15/JDBC和JNDI/", 
+    sourceId: "JDBC和JNDI",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+  <div id="SOHUCS" sid="JDBC和JNDI" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytEXJXBR",
+        conf: "beedba70f251257d2c14eaad03d30886"
+    });
+</script>
+</script>
+  
 
+  
+
+  
 
 
           </div>
@@ -262,10 +420,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
