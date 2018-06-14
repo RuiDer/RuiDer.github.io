@@ -165,8 +165,118 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-EL表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/14/EL表达式/" class="archive-article-date">
+  	<time datetime="2018-06-14T03:47:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a><center>EL表达式</center></h1><hr>
+<blockquote>
+<p>因为热爱，所以拼搏。        –RuiDer</p>
+</blockquote>
+<hr>
+<h3 id="EL表达式-1"><a href="#EL表达式-1" class="headerlink" title="EL表达式"></a>EL表达式</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EL:Expression Language 表达式语言，是在JSP <span class="number">2.0</span>引入的一个新特性，用于JSP文件中数据访问。它的作用相当于替代了JSP中</span><br><span class="line">的&lt;%= %&gt;和&lt;% %&gt;Java程序片段，使用更方便，更简单。</span><br></pre></td></tr></table></figure>
+<h3 id="主要作用"><a href="#主要作用" class="headerlink" title="主要作用"></a>主要作用</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.数据访问</span><br><span class="line"><span class="number">2</span>.替代&lt;%= %&gt;和&lt;% %&gt;Java程序片段</span><br></pre></td></tr></table></figure>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">形如 $&#123;var&#125;</span><br><span class="line">例如：</span><br><span class="line"><span class="number">1</span>.$&#123;param.username&#125;等同于 &lt;%=request.getParameter(<span class="string">"username"</span>)%&gt;</span><br><span class="line">都用于在页面输出请求参数username</span><br><span class="line"><span class="number">2</span>.Java类User对象user的属性name的访问</span><br><span class="line">	$&#123;sessionScope.user.name&#125;或者$&#123;(sessionScope.user)[<span class="string">"name"</span>]&#125;</span><br><span class="line">	&lt;%=sessionContext.getparameter(<span class="string">"username"</span>).name%&gt;</span><br><span class="line"><span class="number">3</span>.EL表达式的运算符</span><br><span class="line">	$&#123;<span class="number">2</span>-<span class="number">1</span>&#125;，$&#123;<span class="number">2</span>*<span class="number">5</span>&#125;，支持加减乘除取模运算符</span><br><span class="line">	$&#123;<span class="number">12</span>&lt;=<span class="number">5</span>&#125;,支持关系运算符</span><br><span class="line">	$&#123;!(<span class="number">12</span>&gt;<span class="number">3</span>)&#125;,$&#123;<span class="number">16</span>&gt;<span class="number">3</span>&amp;&amp;<span class="number">17</span>&lt;<span class="number">2</span>&#125;,支持逻辑运算符</span><br><span class="line">说明：EL表达式不是一门通用于开发的语言，它只是一个重要的特性，简洁了JSP数据访问。</span><br></pre></td></tr></table></figure>
+<h2 id="特殊表达式-："><a href="#特殊表达式-：" class="headerlink" title="特殊表达式 ："></a>特殊表达式 ：</h2><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.$&#123;empty var&#125;表示var是否为空，如果为空，输出<span class="keyword">true</span>，否则，输出<span class="keyword">false</span></span><br><span class="line">说明：</span><br><span class="line">	-var不存在，返回<span class="keyword">true</span></span><br><span class="line">	-var存在，但是var=<span class="keyword">null</span>，返回<span class="keyword">true</span></span><br><span class="line">	-var属于集和对象（Set,Map,List），他们不包含元素时输出True</span><br><span class="line"><span class="number">2</span>.$&#123;a&gt;b?<span class="number">1</span>:<span class="number">2</span>&#125;支持条件运算符</span><br></pre></td></tr></table></figure>
+<h2 id="隐含对象"><a href="#隐含对象" class="headerlink" title="隐含对象"></a>隐含对象</h2><blockquote>
+<p>EL表达式定义了是一个隐含对象，他们都是java.util.Map类型，EL表达式可以通过他们Web应用中的数据。<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.applicationScope:把Web应用范围内的属性名和属性值进行映射。</span><br><span class="line"><span class="number">2</span>.cookie：把客户请求的cookie名和cookie对象进行映射</span><br><span class="line"><span class="number">3</span>.header：把Http请求头部的项目名和所有匹配的项目值进行映射。比如$&#123;header.host&#125;等同于&lt;%=request.getHeader(<span class="string">"host"</span>)%&gt;</span><br><span class="line"><span class="number">4</span>.headerValues:把请求头部的项目名和项目值的数组进行映射。</span><br><span class="line"><span class="number">5</span>.initParam:把web中的初始化参数名和参数值进行映射。</span><br><span class="line"><span class="number">6</span>.pageScope:把页面范围内的属性名和属性值进行映射。</span><br><span class="line"><span class="number">7</span>.pageContext:代表javax.servlet.jsp.PageContext对象</span><br><span class="line"><span class="number">8</span>.param:把请求参数名和参数值进行映射。</span><br><span class="line"><span class="number">9</span>.paramValues:把请求参数名和请求参数值的数组映射。</span><br><span class="line"><span class="number">10</span>.requestScope:请求范围内的属性名和属性值的映射。</span><br><span class="line"><span class="number">11</span>.sessionScope:会话范围内的属性名和属性值进行映射。</span><br><span class="line"></span><br><span class="line">注意：对于含有 <span class="string">"-"</span>字符的属性名或者参数名，必须采用<span class="string">"[]"</span>来访问数据。比如：</span><br><span class="line">	$&#123;user[<span class="string">"user-name"</span>]&#125;而不是$&#123;user.user-name&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="重头戏"><a href="#重头戏" class="headerlink" title="重头戏"></a>重头戏</h2><blockquote>
+<p>EL表达式访问的数据是特定范围内的，不是任何命名变量，比如web应用范围内的，会话范围内，page范围内等特定范围内的数据。<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">比如：</span><br><span class="line">	&lt;%</span><br><span class="line">	String name=<span class="string">"tom"</span>;</span><br><span class="line">	%&gt;</span><br><span class="line">	$&#123;name&#125;</span><br><span class="line">访问上面命名的name变量是错误的，如果在上面所述的特定范围内没有name属性名或者参数名，返回结果为空。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="作者寄语"><a href="#作者寄语" class="headerlink" title="作者寄语"></a>作者寄语</h2><blockquote>
+<p>做过项目的都知道，EL表达式会在项目中普遍使用，尤其在前后端整合，相当便捷。这是<a href="http://ruider.github.io" target="_blank" rel="noopener">我的博客</a></p>
+</blockquote>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EL表达式，JSP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/14/EL表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/13/Linux常用命令/" class="archive-article-date">
+  	<time datetime="2018-06-13T14:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
+</a>
+        
+
+	
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -300,7 +410,33 @@ now          立刻关机
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -336,6 +472,17 @@ now          立刻关机
   
     <article id="post-hexo-yilia主题添加评论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/11/hexo-yilia主题添加评论/" class="archive-article-date">
+  	<time datetime="2018-06-11T09:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
+</a>
+        
+
+	
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -437,6 +584,17 @@ now          立刻关机
   
     <article id="post-添加hexo-yilia主题的访问数量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/11/添加hexo-yilia主题的访问数量/" class="archive-article-date">
+  	<time datetime="2018-06-11T08:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
+</a>
+        
+
+	
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -541,6 +699,17 @@ now          立刻关机
     <article id="post-C#Hashtable的Remove方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/10/C#Hashtable的Remove方法/" class="archive-article-date">
+  	<time datetime="2018-06-10T02:54:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
+</a>
+        
+
+	
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="C-Hashtable方法Remove"><a href="#C-Hashtable方法Remove" class="headerlink" title="C#Hashtable方法Remove"></a><center>C#Hashtable方法Remove<center></center></center></h1><hr>
@@ -631,6 +800,17 @@ now          立刻关机
   
     <article id="post-first" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/10/first/" class="archive-article-date">
+  	<time datetime="2018-06-10T02:54:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
+</a>
+        
+
+	
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -799,6 +979,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Remove</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
               </li>
              
               <li class="article-tag-list-item">
