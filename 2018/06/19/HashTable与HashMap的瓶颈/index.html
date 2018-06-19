@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>我的标签 | RuiDer的博客</title>
+  <title>HashTable与HashMap的瓶颈 | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我看好自己的认真。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="HashTable与HashMap的瓶颈  因为热爱，所以拼搏。         –RuiDer   HashTable与HashMap的瓶颈   我们知道，HashTable和HashMap的底层结构是数组与链表结合实现，Key的hashCode决定对象在数组中存储的位置，相同hashCode的key对象会放在同一个数组角标下。这是最理想的状况，但是存在另外一个问题，当所有的对象的hashCod">
+<meta name="keywords" content="HashTable与HashMap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HashTable与HashMap的瓶颈">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/HashTable与HashMap的瓶颈/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="我看好自己的认真。">
+<meta property="og:description" content="HashTable与HashMap的瓶颈  因为热爱，所以拼搏。         –RuiDer   HashTable与HashMap的瓶颈   我们知道，HashTable和HashMap的底层结构是数组与链表结合实现，Key的hashCode决定对象在数组中存储的位置，相同hashCode的key对象会放在同一个数组角标下。这是最理想的状况，但是存在另外一个问题，当所有的对象的hashCod">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-11T14:00:53.524Z">
+<meta property="og:updated_time" content="2018-06-19T09:41:28.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的标签">
-<meta name="twitter:description" content="我看好自己的认真。">
+<meta name="twitter:title" content="HashTable与HashMap的瓶颈">
+<meta name="twitter:description" content="HashTable与HashMap的瓶颈  因为热爱，所以拼搏。         –RuiDer   HashTable与HashMap的瓶颈   我们知道，HashTable和HashMap的底层结构是数组与链表结合实现，Key的hashCode决定对象在数组中存储的位置，相同hashCode的key对象会放在同一个数组角标下。这是最理想的状况，但是存在另外一个问题，当所有的对象的hashCod">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
   
@@ -164,14 +165,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="tags-" class="article article-type-tags " itemscope itemprop="blogPost">
+            <article id="post-HashTable与HashMap的瓶颈" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header" style="font-size:200%; text-align:center">
         
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-06-11T11:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
+        <a href="/2018/06/19/HashTable与HashMap的瓶颈/" class="archive-article-date">
+  	<time datetime="2018-06-19T09:13:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
 </a>
         
 
@@ -184,7 +185,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="HashTable与HashMap的瓶颈"><a href="#HashTable与HashMap的瓶颈" class="headerlink" title="HashTable与HashMap的瓶颈"></a><center>HashTable与HashMap的瓶颈</center></h1><hr>
+<blockquote>
+<p>因为热爱，所以拼搏。         –RuiDer</p>
+</blockquote>
+<hr>
+<h4 id="HashTable与HashMap的瓶颈-1"><a href="#HashTable与HashMap的瓶颈-1" class="headerlink" title="HashTable与HashMap的瓶颈"></a>HashTable与HashMap的瓶颈</h4><p>   我们知道，HashTable和HashMap的底层结构是数组与链表结合实现，Key的hashCode决定对象在数组中存储的位置，相同hashCode的key对象会放在同一个数组角标下。这是最理想的状况，但是存在另外一个问题，当所有的对象的hashCode相同时，所有对象都被放在一个角标中，数组缩为一个链表。这时，get方法本来时间复杂度为O（1）却变成了O(n),性能急剧下降。。</p>
+
       
 
       
@@ -219,7 +226,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashTable与HashMap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -269,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/19/HashTable与HashMap的瓶颈/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,6 +310,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/19/CurrentHashMap与HashTable锁范围的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CurrentHashMap与HashTable锁范围的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -302,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HashTable与HashMap的瓶颈"><span class="toc-number">1.</span> <span class="toc-text">HashTable与HashMap的瓶颈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashTable与HashMap的瓶颈-1"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">HashTable与HashMap的瓶颈</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -312,6 +351,57 @@
 </aside>
 
 
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="HashTable与HashMap的瓶颈" data-title="HashTable与HashMap的瓶颈" data-url="http://yoursite.com/2018/06/19/HashTable与HashMap的瓶颈/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/06/19/HashTable与HashMap的瓶颈/", 
+    sourceId: "HashTable与HashMap的瓶颈",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+  
+  <div id="SOHUCS" sid="HashTable与HashMap的瓶颈" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytEXJXBR",
+        conf: "beedba70f251257d2c14eaad03d30886"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -340,7 +430,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
