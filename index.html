@@ -169,6 +169,187 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-DataSource数据源简单理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/22/DataSource数据源简单理解/" class="archive-article-date">
+  	<time datetime="2018-06-22T03:13:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="DataSource数据源简单理解"><a href="#DataSource数据源简单理解" class="headerlink" title="DataSource数据源简单理解"></a><center>DataSource数据源简单理解</center></h1><hr>
+<p>因为热爱，所以拼搏。          –<a href="ruider.github.io">RuiDer</a></p>
+<hr>
+<h3 id="什么是数据源"><a href="#什么是数据源" class="headerlink" title="什么是数据源"></a>什么是数据源</h3><blockquote>
+<p>JDBC2.0 提供了javax.sql.DataSource接口，它负责建立与数据库的连接，当在应用程序中访问数据库时<br>不必编写连接数据库的代码，直接引用DataSource获取数据库的连接对象即可。用于获取操作数据Connection对象。</p>
+</blockquote>
+<h3 id="数据源与数据库连接池"><a href="#数据源与数据库连接池" class="headerlink" title="数据源与数据库连接池"></a>数据源与数据库连接池</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据源建立多个数据库连接，这些数据库连接会保存在数据库连接池中，当需要访问数据库时，只需要从数据库连接池中</span><br><span class="line">获取空闲的数据库连接，当程序访问数据库结束时，数据库连接会放回数据库连接池中。</span><br></pre></td></tr></table></figure>
+<h3 id="数据源DataSource与JNDI"><a href="#数据源DataSource与JNDI" class="headerlink" title="数据源DataSource与JNDI"></a>数据源DataSource与JNDI</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据源DataSource是JNDI资源的一种，很简单，就是将“DataSource”字符串名称与真正的DataSource对象绑定起来，方便获取。</span><br></pre></td></tr></table></figure>
+<h3 id="数据库连接池的优势"><a href="#数据库连接池的优势" class="headerlink" title="数据库连接池的优势"></a>数据库连接池的优势</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">传统的JDBC访问数据库技术，每次访问数据库都需要通过数据库驱动器Driver和数据库名称以及密码等等资源建立数据库连接。</span><br><span class="line">这样的连接存在两大问题：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 频繁的建立数据库连接与断开数据库，这样会消耗大量的资源和时间，降低性能。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 数据库的连接需要用户名和密码等等，这些需要一定的内存和CPU一定开销。</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DataSource</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/22/DataSource数据源简单理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JNDI简单理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/22/JNDI简单理解/" class="archive-article-date">
+  	<time datetime="2018-06-22T02:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JNDI简单理解"><a href="#JNDI简单理解" class="headerlink" title="JNDI简单理解"></a><center>JNDI简单理解</center></h1><hr>
+<p>因为热爱，所以拼搏。          –<a href="ruider.github.io">RuiDer</a></p>
+<hr>
+<h3 id="什么是JNDI技术"><a href="#什么是JNDI技术" class="headerlink" title="什么是JNDI技术"></a>什么是JNDI技术</h3><blockquote>
+<p>JNDI: Java Naming And Directory Interface,通俗的理解就是将名称与对象绑定在一起，对象工厂负责生产出对象，这些对象与特定的名称绑定。<br>外部程序通过对象的名称查找对象资源并使用资源。</p>
+</blockquote>
+<h3 id="JNDI原理"><a href="#JNDI原理" class="headerlink" title="JNDI原理"></a>JNDI原理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//javax.naming包负责管理JNDI技术，该包中的Context接口定义了两个方法</span></span><br><span class="line"><span class="comment">//bind: 负责绑定名称和对象</span></span><br><span class="line"><span class="comment">//lookup:通过名称查找对象的作用。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Conterface</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bind</span><span class="params">(String name，Object obj)</span></span>;</span><br><span class="line">    <span class="function">publiv Object <span class="title">lookup</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>个人理解：JNDI的底层是一个HashMap结构，将名称和对象使用键值对一一对应，这种关系的搭建与Map体系紧紧相连。</p>
+</blockquote>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JNDI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/22/JNDI简单理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java事务管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -185,7 +366,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Java事务管理"><a href="#Java事务管理" class="headerlink" title="#Java事务管理"></a>#<center>Java事务管理</center></h2><p>因为热爱，所以拼搏。           –<a href="ruider.github.io">RuiDer</a></p>
+        <h1 id="Java事务管理"><a href="#Java事务管理" class="headerlink" title="Java事务管理"></a><center>Java事务管理</center></h1><hr>
+<p>因为热爱，所以拼搏。           –<a href="ruider.github.io">RuiDer</a></p>
 <hr>
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事务是什么？</span><br><span class="line">	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，</span><br><span class="line">	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。</span><br><span class="line">	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，</span><br><span class="line">	事务相当重要。</span><br></pre></td></tr></table></figure>
 <h3 id="事务原则"><a href="#事务原则" class="headerlink" title="事务原则"></a>事务原则</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数据库事务遵从ACID原则。</span><br><span class="line">A：原子性，automicty，一次操作对某一数据的修改在事务失败后恢复原来的数据</span><br><span class="line">C：一致性，一次操作失败后与被修改的数据有关的所有数据恢复原来的数据</span><br><span class="line">I：隔离性：一次操作进行的时候，对于其他数据，被修改的数据是不可见的。</span><br><span class="line">D：持久性，一次操作失败后，数据库的所有数据必须保持正确。</span><br></pre></td></tr></table></figure>
@@ -1031,222 +1213,6 @@ now          立刻关机
 
 
   
-    <article id="post-添加hexo-yilia主题的访问数量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header" style="font-size:200%; text-align:center">
-        
-        
-        <a href="/2018/06/11/添加hexo-yilia主题的访问数量/" class="archive-article-date">
-  	<time datetime="2018-06-11T08:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
-</a>
-        
-
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="hexo-yilia主题的添加访问数量"><a href="#hexo-yilia主题的添加访问数量" class="headerlink" title="hexo+yilia主题的添加访问数量"></a><center>hexo+yilia主题的添加访问数量</center></h1><hr>
-<blockquote>
-<p>因为热爱，所以拼搏。        –RuiDer</p>
-</blockquote>
-<hr>
-<h2 id="前导必备"><a href="#前导必备" class="headerlink" title="前导必备"></a>前导必备</h2><ol>
-<li>Github+hexo主题的个人博客</li>
-<li>Your heart</li>
-</ol>
-<h2 id="hexo添加访问量功能工具"><a href="#hexo添加访问量功能工具" class="headerlink" title="hexo添加访问量功能工具"></a>hexo添加访问量功能工具</h2><blockquote>
-<p>hexo添加访问量统计功能可以用百度的站长统计、leancloud，还有不蒜子，我用的是不蒜子。</p>
-</blockquote>
-<h2 id="引入不蒜子"><a href="#引入不蒜子" class="headerlink" title="引入不蒜子"></a>引入不蒜子</h2><blockquote>
-<p>将下面代码添加在 /themes/yilia/layout/_partial/footer.ejs的末尾</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="添加站点访问量"><a href="#添加站点访问量" class="headerlink" title="添加站点访问量"></a>添加站点访问量</h2><blockquote>
-<p>将下面代码添加在 /themes/yilia/layout/_partial/footer.ejs中末尾。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span> </span><br><span class="line">  本站访客数<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="添加文章访问量"><a href="#添加文章访问量" class="headerlink" title="添加文章访问量"></a>添加文章访问量</h2><blockquote>
-<p>将下面代码添加在 /themes/yilia/layout/_partial/article.ejs 中，位置如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 添加代码  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_page_pv"</span>&gt;</span></span><br><span class="line">   本文总阅读量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- article.ejs自身代码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_page_pv"</span>&gt;</span></span><br><span class="line">   		本文总阅读量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line">	    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-info article-info-index"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">%if(post.top)&#123;%</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-pop-out tagcloud"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-tuding"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"article-tag-list-link color3"</span>&gt;</span>置顶<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>我们直接就这样放在yilia主题中，首页也会显示该网页的访问量，没法正常使用，所以我加一个判断，如果是首页不显示该文章的访问量，下面这段代码添加在/themes/yilia/layout/_partial/article.ejs的header的日期后面：</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- article自身代码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"article-header"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">title</span>', &#123;<span class="attr">class_name:</span> '<span class="attr">article-title</span>'&#125;) %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">post.noDate</span>)&#123; %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">date</span>', &#123;<span class="attr">class_name:</span> '<span class="attr">archive-article-date</span>', <span class="attr">date_format:</span> <span class="attr">null</span>&#125;) %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">       </span><br><span class="line">	<span class="comment">&lt;!-- 添加代码 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> ( !<span class="attr">index</span> )&#123; %&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"archive-article-date"</span>&gt;</span></span><br><span class="line">			阅读量 <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="作者寄语"><a href="#作者寄语" class="headerlink" title="作者寄语"></a>作者寄语</h2><blockquote>
-<p>Everything is ok..</p>
-</blockquote>
-
-      
-
-      
-	
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo yilia主题添加文章访问量统计</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">不蒜子</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color2">hexo教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/11/添加hexo-yilia主题的访问数量/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C#Hashtable的Remove方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header" style="font-size:200%; text-align:center">
-        
-        
-        <a href="/2018/06/10/C#Hashtable的Remove方法/" class="archive-article-date">
-  	<time datetime="2018-06-10T02:54:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
-</a>
-        
-
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-Hashtable方法Remove"><a href="#C-Hashtable方法Remove" class="headerlink" title="C#Hashtable方法Remove"></a><center>C#Hashtable方法Remove<center></center></center></h1><hr>
-<blockquote>
-<p>因为热爱，所以拼搏。        –RuiDer</p>
-</blockquote>
-<p><a href="https://ruider.github.io" target="_blank" rel="noopener">我的博客</a></p>
-<hr>
-<p>学Java的，因为项目要求于是自学C#，短时间总结了很多C#与Java之间的区别。两者都是面向对象编程语言，具体区别详见其他参考。</p>
-<hr>
-<h4 id="论C-的Hashtable方法Remove方法"><a href="#论C-的Hashtable方法Remove方法" class="headerlink" title="论C#的Hashtable方法Remove方法"></a>论C#的Hashtable方法Remove方法</h4><blockquote>
-<p> 命名空间:System.Collections<br>Remove(Object key)是根据Hashtable的键删除元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void Remove(Object key)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>我的引用：<a href="https://github.com/RuiDer/MyProject/blob/master/%E9%99%8C%E4%B8%8A%E5%8F%B6/C%23_Code/ListDisplay.cs" target="_blank" rel="noopener">C#Hashtable Remove方法</a></p>
-<hr>
-
-      
-
-      
-	
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hashtable</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Remove</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C//" class="article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/10/C#Hashtable的Remove方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1350,11 +1316,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ConcurrentHashMap和Hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">锁</a>
+                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,15 +1324,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color5">JNDI</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+                <a href="javascript:void(0)" class="js-tag color3">ConcurrentHashMap和Hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Remove</a>
+                <a href="javascript:void(0)" class="js-tag color2">锁</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1411,6 +1373,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">不蒜子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Remove</a>
               </li>
             
             <div class="clearfix"></div>
