@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: JavaSE | RuiDer的博客</title>
+  <title>Mybatis缓存 | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我看好自己的认真。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RuiDer的博客">
-<meta property="og:url" content="http://yoursite.com/categories/JavaSE/index.html">
+  <meta name="description" content="Mybatis缓存 因为热爱，所以拼搏。        –RuiDer  前导必备- 数据库 - Mybatis Mybatis缓存 Mybatis提供缓存支持，志在提升开发的性能。数据库数据的索引一般是基于磁盘的，而内存和高速缓存相对磁盘的读写速度相当快，基本是磁盘读写数据的十倍。尤其在互联网开发中，追求速度，缓存为性能提供捷径。Mybatis缓存包括一级缓存和二级缓存，一级缓存基于SqlSes">
+<meta name="keywords" content="Mybatis,缓存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis缓存">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/Mybatis缓存/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="我看好自己的认真。">
+<meta property="og:description" content="Mybatis缓存 因为热爱，所以拼搏。        –RuiDer  前导必备- 数据库 - Mybatis Mybatis缓存 Mybatis提供缓存支持，志在提升开发的性能。数据库数据的索引一般是基于磁盘的，而内存和高速缓存相对磁盘的读写速度相当快，基本是磁盘读写数据的十倍。尤其在互联网开发中，追求速度，缓存为性能提供捷径。Mybatis缓存包括一级缓存和二级缓存，一级缓存基于SqlSes">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-26T15:19:19.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RuiDer的博客">
-<meta name="twitter:description" content="我看好自己的认真。">
+<meta name="twitter:title" content="Mybatis缓存">
+<meta name="twitter:description" content="Mybatis缓存 因为热爱，所以拼搏。        –RuiDer  前导必备- 数据库 - Mybatis Mybatis缓存 Mybatis提供缓存支持，志在提升开发的性能。数据库数据的索引一般是基于磁盘的，而内存和高速缓存相对磁盘的读写速度相当快，基本是磁盘读写数据的十倍。尤其在互联网开发中，追求速度，缓存为性能提供捷径。Mybatis缓存包括一级缓存和二级缓存，一级缓存基于SqlSes">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
   
@@ -167,331 +169,255 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mybatis缓存" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/26/Mybatis缓存/" class="archive-article-date">
+  	<time datetime="2018-06-26T15:16:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-26</time>
+</a>
+        
+
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mybatis缓存"><a href="#Mybatis缓存" class="headerlink" title="Mybatis缓存"></a><center>Mybatis缓存</center></h1><hr>
+<p>因为热爱，所以拼搏。        –<a href="ruider.github.io">RuiDer</a></p>
+<hr>
+<h3 id="前导必备"><a href="#前导必备" class="headerlink" title="前导必备"></a>前导必备</h3><pre><code>- 数据库
+- Mybatis
+</code></pre><h3 id="Mybatis缓存-1"><a href="#Mybatis缓存-1" class="headerlink" title="Mybatis缓存"></a>Mybatis缓存</h3><blockquote>
+<p>Mybatis提供缓存支持，志在提升开发的性能。数据库数据的索引一般是基于磁盘的，而内存和高速缓存相对磁盘的读写速度相当快，基本是磁盘读写数据的十倍。尤其在互联网开发中，追求速度，缓存为性能提供捷径。Mybatis缓存包括一级缓存和二级缓存，一级缓存基于SqlSession层面，二级缓存基于SqlSessionFactory层面。</p>
+</blockquote>
+<h3 id="一级缓存和二级缓存"><a href="#一级缓存和二级缓存" class="headerlink" title="一级缓存和二级缓存"></a>一级缓存和二级缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">缓存：将sql语句select查询出来对应的POJO对象进行缓存，供后续SqlSession对象使用。</span><br><span class="line"></span><br><span class="line">一级缓存</span><br><span class="line">	条件：</span><br><span class="line">	- 同一个SqlSession对象</span><br><span class="line">	- 同一个sql查询语句</span><br><span class="line">	当同一个SqlSession对象进行两次相同select语句查询时，第一次会执行sql语句进行数据库的索引，</span><br><span class="line">之后将所查询数据对应的POJO对象进行缓存；第二次执行相同参数的sql语句查询前，不会像第一次执行sql语句，</span><br><span class="line">而是直接从缓存中索引数据对象。所以说，一级缓存是基于SqlSession的。不同的SqlSession对象的缓存不可以</span><br><span class="line">共享，不能相互访问。为了解决相互共享问题，Mybatis提供二级缓存解决该问题。注意，一级缓存对每个SqlSession</span><br><span class="line">对象要求他们在所有sql语句后必须执行commit语句，否则，不存在一级缓存。</span><br><span class="line"></span><br><span class="line">	二级缓存</span><br><span class="line">	条件：</span><br><span class="line">	- 同一个SqlSessionFactory对象</span><br><span class="line">	- 不同的SqlSession对象</span><br><span class="line">	- 共享POJO对象、</span><br><span class="line">	二级缓存是相对SqlSessionFactory对象而言的，同一个SqlSessionFactory创建的不同的SqlSession对象，</span><br><span class="line">可以共享该SqlSessionFactory下的所有POJO对象，也就是数据库数据的共享。但是二级缓存要求对应的POJO类需要实现</span><br><span class="line">序列化，也就是实现java.io.Serializable接口。</span><br></pre></td></tr></table></figure>
+<h3 id="一级缓存-和-二级缓存-的配置"><a href="#一级缓存-和-二级缓存-的配置" class="headerlink" title="一级缓存 和 二级缓存 的配置"></a>一级缓存 和 二级缓存 的配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一级缓存：Mybatis默认一级缓存，只要每个SqlSession对象执行commit语句，都会存在一级缓存。</span><br><span class="line">二级缓存：</span><br><span class="line">	&lt;cache</span><br><span class="line">	...sql语句...</span><br><span class="line">	/&gt;</span><br><span class="line">	加入上述语句，就会开启二级缓存。二级缓存会进行序列化和反序列化的过程，所以说POJO</span><br><span class="line">必须要实现Seriaizable接口。二级缓存cache元素会将select出来的POJO对象进行缓存，对于</span><br><span class="line">insert,update,delete sql语句二级缓存会自动刷新。</span><br></pre></td></tr></table></figure>
+<h3 id="二级缓存配置cache元素配置项"><a href="#二级缓存配置cache元素配置项" class="headerlink" title="二级缓存配置cache元素配置项"></a>二级缓存配置cache元素配置项</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cache接口源码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Cache</span></span>&#123;</span><br><span class="line">	<span class="comment">//获取缓存id</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//保存POJO对象,key为键，value为值</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putObject</span><span class="params">(Object key,Object value)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取POJO对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getObject</span><span class="params">(Object key)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//清除缓存</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取缓存大小</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//获取读写锁,主要是多线程时使用</span></span><br><span class="line">	<span class="function">ReadWriteLock <span class="title">getReadWriteLock</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置Redis或者MongoDB缓存处理"><a href="#配置Redis或者MongoDB缓存处理" class="headerlink" title="配置Redis或者MongoDB缓存处理"></a>配置Redis或者MongoDB缓存处理</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;cache type=<span class="string">"com....RedisCache"</span>&gt;</span><br><span class="line">	&lt;property name=<span class="string">"Host"</span> value=<span class="string">"localHost"</span>&gt;</span><br><span class="line">&lt;/cache&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/RuiDer" target="_blank" rel="noopener">我的GitHub</a></p>
+<p><a href="https://blog.csdn.net/qq_40910541" target="_blank" rel="noopener">我的博客</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>俺的微信，欢迎关注<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/微信1.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+	
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/22/DataSource数据源简单理解/" class="archive-article-date">
-  	<time datetime="2018-06-22T03:13:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/22/DataSource数据源简单理解/">DataSource数据源简单理解</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">DataSource</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/22/JNDI简单理解/" class="archive-article-date">
-  	<time datetime="2018-06-22T02:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/22/JNDI简单理解/">JNDI简单理解</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JNDI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/21/Java事务管理/" class="archive-article-date">
-  	<time datetime="2018-06-21T14:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/21/Java事务管理/">Java事务管理</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java事务管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">缓存</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/26/Mybatis缓存/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/19/HashTable与HashMap的瓶颈/" class="archive-article-date">
-  	<time datetime="2018-06-19T09:13:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/26/Mybatis-N-1问题解析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mybatis N+1问题解析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/19/HashTable与HashMap的瓶颈/">HashTable与HashMap的瓶颈</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashTable与HashMap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mybatis缓存"><span class="toc-number">1.</span> <span class="toc-text">Mybatis缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前导必备"><span class="toc-number">1.0.1.</span> <span class="toc-text">前导必备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mybatis缓存-1"><span class="toc-number">1.0.2.</span> <span class="toc-text">Mybatis缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一级缓存和二级缓存"><span class="toc-number">1.0.3.</span> <span class="toc-text">一级缓存和二级缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一级缓存-和-二级缓存-的配置"><span class="toc-number">1.0.4.</span> <span class="toc-text">一级缓存 和 二级缓存 的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二级缓存配置cache元素配置项"><span class="toc-number">1.0.5.</span> <span class="toc-text">二级缓存配置cache元素配置项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Redis或者MongoDB缓存处理"><span class="toc-number">1.0.6.</span> <span class="toc-text">配置Redis或者MongoDB缓存处理</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/19/CurrentHashMap与HashTable锁范围的区别/" class="archive-article-date">
-  	<time datetime="2018-06-19T09:06:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/19/CurrentHashMap与HashTable锁范围的区别/">CurrentHashMap与HashTable锁范围的区别</a>
-    </h1>
-  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Mybatis缓存" data-title="Mybatis缓存" data-url="http://yoursite.com/2018/06/26/Mybatis缓存/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ConcurrentHashMap和Hashtable</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">锁</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/14/EL表达式/" class="archive-article-date">
-  	<time datetime="2018-06-14T03:47:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/14/EL表达式/">EL表达式</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EL表达式，JSP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/06/26/Mybatis缓存/", 
+    sourceId: "Mybatis缓存",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+  <div id="SOHUCS" sid="Mybatis缓存" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytEXJXBR",
+        conf: "beedba70f251257d2c14eaad03d30886"
+    });
+</script>
+</script>
+  
 
+  
+
+  
 
 
           </div>
@@ -520,10 +446,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
