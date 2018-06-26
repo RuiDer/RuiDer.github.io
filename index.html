@@ -169,6 +169,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mybatis-N-1问题解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/06/26/Mybatis-N-1问题解析/" class="archive-article-date">
+  	<time datetime="2018-06-26T04:24:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-26</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mybatis-N-1问题解析"><a href="#Mybatis-N-1问题解析" class="headerlink" title="Mybatis N+1问题解析"></a><center>Mybatis N+1问题解析</center></h1><hr>
+<p>因为热爱，所以拼搏。           –<a href="ruider.github.io">RuiDer</a></p>
+<hr>
+<h3 id="前导必备"><a href="#前导必备" class="headerlink" title="前导必备"></a>前导必备</h3><ul>
+<li>Mybatis</li>
+<li>数据库</li>
+<li>级联<h3 id="N-1问题？？"><a href="#N-1问题？？" class="headerlink" title="N+1问题？？"></a>N+1问题？？</h3><blockquote>
+<p>N+1问题来源于数据库中常见的级联技术，即N个数据库表形成关联关系，当再增加一个关联表时，也就是N+1个级联关系，由于某些时候，我们并不需要加载数据库的所有数据，而是某一个数据库表中数据，这时Mybatis会自动加载所有表的数据，多执行几条无关sql语句，会造成数据库资源的浪费以及系统性能的下降，这就是级联表的缺点。</p>
+</blockquote>
+<h3 id="如何解决N-1问题"><a href="#如何解决N-1问题" class="headerlink" title="如何解决N+1问题"></a>如何解决N+1问题</h3><blockquote>
+<p>Mybatis本身给出解决方案，就是延迟加载。</p>
+</blockquote>
+<h3 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h3><blockquote>
+<p>延迟加载会解决上述的N+1问题，也就是在N+1个级联表的情况下，只加载需求的数据库表数据。这是互联网发展的需求，性能提升的途径。</p>
+</blockquote>
+<h3 id="如何配置Mybatis完成延迟加载"><a href="#如何配置Mybatis完成延迟加载" class="headerlink" title="如何配置Mybatis完成延迟加载"></a>如何配置Mybatis完成延迟加载</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">全局配置：</span><br><span class="line">	- lazyLoadingEnabled        <span class="keyword">true</span>/<span class="keyword">false</span></span><br><span class="line">	- aggressiveLazyLoading      <span class="keyword">true</span>/<span class="keyword">false</span></span><br><span class="line">	</span><br><span class="line">	lazyLoadingEnabled:延迟加载的全局开关，当开启时，所有关联都会延迟加载。在特定的关联中，</span><br><span class="line">使用fetchType属性覆盖该内容的功能。fetchType将在后面介绍。</span><br><span class="line"></span><br><span class="line">	aggressiveLazyLoading：是层级延迟加载开关，什么意思呢？就是处于同一个层级的关联表会同</span><br><span class="line">时延迟加载，或者同时被加载。</span><br><span class="line">	</span><br><span class="line">	配置：</span><br><span class="line">		在Mybatis的全局配置中的setting标签中加入设置</span><br><span class="line">		&lt;setting&gt;</span><br><span class="line">			&lt;setting name=<span class="string">"lazyLoadingEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">			&lt;setting name=<span class="string">"aggressiveLazyLoading"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">		&lt;/setting&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="全局配置的缺点"><a href="#全局配置的缺点" class="headerlink" title="全局配置的缺点"></a>全局配置的缺点</h3><p>上面的配置属于全局配置，会出现一个问题，同一个层级的级联表也存在需求性的差异，同一级的某个数据库表的数据或许不是我们经常使用的，那么上述的配置也会影响系统的性能。</p>
+<h3 id="全局配置的优化-—-fetchType属性"><a href="#全局配置的优化-—-fetchType属性" class="headerlink" title="全局配置的优化 — fetchType属性"></a>全局配置的优化 — fetchType属性</h3><blockquote>
+<p>Mybatis使用fetchType属性解决全局配置的缺点。fetchType出现在级联元素association,collection中，它存在两个值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	- eager:获得当前POJO后立即加载对应的数据。</span><br><span class="line">	- lazy:获得当前POJO后延迟加载对应的数据。</span><br><span class="line">	</span><br><span class="line">配置：</span><br><span class="line">		&lt;collection properties=<span class="string">".."</span> column=<span class="string">".."</span> fetchType=<span class="string">"eager"</span></span><br><span class="line">			select=<span class="string">"映射接口"</span></span><br><span class="line">		/&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><a href="https://github.com/RuiDer" target="_blank" rel="noopener">我的github</a></p>
+<p><a href="ruider.github.io">我的博客</a></p>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">N+1</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/Mybatis-N-1问题解析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JavaEE-EJB的简单理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -995,212 +1104,6 @@ JDBC-ODBCBridge、JDBC-native driverbridge、JDBC-networkbridge、PureJavadriver
 
 
   
-    <article id="post-Linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header" style="font-size:200%; text-align:center">
-        
-        
-        <a href="/2018/06/13/Linux常用命令/" class="archive-article-date">
-  	<time datetime="2018-06-13T14:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-13</time>
-</a>
-        
-
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a><center>Linux常用命令</center></h1><hr>
-<blockquote>
-<p>因为热爱，所以拼搏。       –RuiDer</p>
-</blockquote>
-<hr>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>ls　　        显示文件或目录</p>
-<pre><code>-l           列出文件详细信息l(list)
-
--a          列出当前目录下所有文件及目录，包括隐藏的a(all)
-</code></pre><p>mkdir         创建目录</p>
-<pre><code>-p           创建目录，若无父目录，则创建p(parent)
-</code></pre><p>cd               切换目录</p>
-<p>touch          创建空文件</p>
-<p>echo            创建带有内容的文件。</p>
-<p>cat              查看文件内容</p>
-<p>cp                拷贝</p>
-<p>mv               移动或重命名</p>
-<p>rm               删除文件</p>
-<pre><code>-r            递归删除，可删除子目录及文件
-
--f            强制删除
-</code></pre><p>find              在文件系统中搜索某文件</p>
-<p>wc                统计文本中行数、字数、字符数</p>
-<p>grep             在文本文件中查找某个字符串</p>
-<p>rmdir           删除空目录</p>
-<p>tree             树形结构显示目录，需要安装tree包</p>
-<p>pwd              显示当前目录</p>
-<p>ln                  创建链接文件</p>
-<p>more、less  分页显示文本文件内容</p>
-<p>head、tail    显示文件头、尾内容</p>
-<p>ctrl+alt+F1  命令行全屏模式</p>
-<h3 id="系统管理命令"><a href="#系统管理命令" class="headerlink" title="系统管理命令"></a>系统管理命令</h3><p>stat              显示指定文件的详细信息，比ls更详细</p>
-<p>who               显示在线登陆用户</p>
-<p>whoami          显示当前操作用户</p>
-<p>hostname      显示主机名</p>
-<p>uname           显示系统信息</p>
-<p>top                动态显示当前耗费资源最多进程信息</p>
-<p>ps                  显示瞬间进程状态 ps -aux</p>
-<p>du                  查看目录大小 du -h /home带有单位显示目录信息</p>
-<p>df                  查看磁盘大小 df -h 带有单位显示磁盘信息</p>
-<p>ifconfig          查看网络情况</p>
-<p>ping                测试网络连通</p>
-<p>netstat          显示网络状态信息</p>
-<p>man                命令不会用了，找男人  如：man ls</p>
-<p>clear              清屏</p>
-<p>alias               对命令重命名 如：alias showmeit=”ps -aux” ，另外解除使用unaliax showmeit</p>
-<p>kill                 杀死进程，可以先用ps 或 top命令查看进程的id，然后再用kill命令杀死进程。</p>
-<h3 id="打包压缩相关命令"><a href="#打包压缩相关命令" class="headerlink" title="打包压缩相关命令"></a>打包压缩相关命令</h3><p>gzip：</p>
-<p>bzip2：</p>
-<p>tar:                打包压缩</p>
-<pre><code>-c              归档文件
-
--x              压缩文件
-
--z              gzip压缩文件
-
--j              bzip2压缩文件
-
--v              显示压缩或解压缩过程 v(view)
-
--f              使用档名
-</code></pre><p>例：</p>
-<p>tar -cvf /home/abc.tar /home/abc              只打包，不压缩</p>
-<p>tar -zcvf /home/abc.tar.gz /home/abc        打包，并用gzip压缩</p>
-<p>tar -jcvf /home/abc.tar.bz2 /home/abc      打包，并用bzip2压缩</p>
-<p>当然，如果想解压缩，就直接替换上面的命令  tar -cvf  / tar -zcvf  / tar -jcvf 中的“c” 换成“x” 就可以了。</p>
-<h3 id="关机-重启机器"><a href="#关机-重启机器" class="headerlink" title="关机/重启机器"></a>关机/重启机器</h3><p>shutdown</p>
-<pre><code>-r             关机重启
-
--h             关机不重启
-
-now          立刻关机
-</code></pre><p>halt               关机</p>
-<p>reboot          重启</p>
-<h3 id="Linux管道"><a href="#Linux管道" class="headerlink" title="Linux管道"></a>Linux管道</h3><p>将一个命令的标准输出作为另一个命令的标准输入。也就是把几个命令组合起来使用，后一个命令除以前一个命令的结果。</p>
-<p>例：grep -r “close” /home/* | more       在home目录下所有文件中查找，包括close的文件，并分页输出。</p>
-<h3 id="Linux软件包管理"><a href="#Linux软件包管理" class="headerlink" title="Linux软件包管理"></a>Linux软件包管理</h3><p>dpkg (Debian Package)管理工具，软件包名以.deb后缀。这种方法适合系统不能联网的情况下。</p>
-<p>比如安装tree命令的安装包，先将tree.deb传到Linux系统中。再使用如下命令安装。</p>
-<p>sudo dpkg -i tree_1.5.3-1_i386.deb         安装软件</p>
-<p>sudo dpkg -r tree                                     卸载软件</p>
-<p>注：将tree.deb传到Linux系统中，有多种方式。VMwareTool，使用挂载方式；使用winSCP工具等；</p>
-<p>APT（Advanced Packaging Tool）高级软件工具。这种方法适合系统能够连接互联网的情况。</p>
-<p>依然以tree为例</p>
-<p>sudo apt-get install tree                         安装tree</p>
-<p>sudo apt-get remove tree                       卸载tree</p>
-<p>sudo apt-get update                                 更新软件</p>
-<p>sudo apt-get upgrade        </p>
-<p>将.rpm文件转为.deb文件</p>
-<p>.rpm为RedHat使用的软件格式。在Ubuntu下不能直接使用，所以需要转换一下。</p>
-<p>sudo alien abc.rpm</p>
-<h3 id="vim使用"><a href="#vim使用" class="headerlink" title="vim使用"></a>vim使用</h3><p>vim三种模式：命令模式、插入模式、编辑模式。使用ESC或i或：来切换模式。</p>
-<p>命令模式下：</p>
-<p>:q                      退出</p>
-<p>:q!                     强制退出</p>
-<p>:wq                   保存并退出</p>
-<p>:set number     显示行号</p>
-<p>:set nonumber  隐藏行号</p>
-<p>/apache            在文档中查找apache 按n跳到下一个，shift+n上一个</p>
-<p>yyp                   复制光标所在行，并粘贴</p>
-<p>h(左移一个字符←)、j(下一行↓)、k(上一行↑)、l(右移一个字符→)</p>
-<h3 id="用户及用户组管理"><a href="#用户及用户组管理" class="headerlink" title="用户及用户组管理"></a>用户及用户组管理</h3><p>/etc/passwd    存储用户账号</p>
-<p>/etc/group       存储组账号</p>
-<p>/etc/shadow    存储用户账号的密码</p>
-<p>/etc/gshadow  存储用户组账号的密码</p>
-<p>useradd 用户名</p>
-<p>userdel 用户名</p>
-<p>adduser 用户名</p>
-<p>groupadd 组名</p>
-<p>groupdel 组名</p>
-<p>passwd root     给root设置密码</p>
-<p>su root</p>
-<p>su - root </p>
-<p>/etc/profile     系统环境变量</p>
-<p>bash_profile     用户环境变量</p>
-<p>.bashrc              用户环境变量</p>
-<p>su user              切换用户，加载配置文件.bashrc</p>
-<p>su - user            切换用户，加载配置文件/etc/profile ，加载bash_profile</p>
-<h3 id="更改文件的用户及用户组"><a href="#更改文件的用户及用户组" class="headerlink" title="更改文件的用户及用户组"></a>更改文件的用户及用户组</h3><p>sudo chown [-R] owner[:group] {File|Directory}</p>
-<p>例如：还以jdk-7u21-linux-i586.tar.gz为例。属于用户hadoop，组hadoop</p>
-<p>要想切换此文件所属的用户及组。可以使用命令。</p>
-<p>sudo chown root:root jdk-7u21-linux-i586.tar.gz</p>
-
-      
-
-      
-	
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/13/Linux常用命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1304,26 +1207,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Remove</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">HashTable与HashMap</a>
               </li>
              
@@ -1333,6 +1216,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Remove</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,11 +1247,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java事务管理</a>
+                <a href="javascript:void(0)" class="js-tag color4">N+1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1376,11 +1275,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java事务管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo yilia主题添加文章访问量统计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">不蒜子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
               </li>
             
             <div class="clearfix"></div>
