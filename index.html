@@ -169,6 +169,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-倒排索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/07/09/倒排索引/" class="archive-article-date">
+  	<time datetime="2018-07-08T16:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h1><p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&amp;fm=27&amp;gp=0.jpg" alt=""></p>
+<hr>
+<p>因为热爱，所以拼搏。         –<a href="ruider.github.io">RuiDer</a></p>
+<hr>
+<h3 id="前导必备"><a href="#前导必备" class="headerlink" title="前导必备"></a>前导必备</h3><ul>
+<li>Java基础</li>
+<li>数据库</li>
+</ul>
+<h3 id="正常索引使用"><a href="#正常索引使用" class="headerlink" title="正常索引使用"></a>正常索引使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">比如一张数据库表table，有id和content两个字段，表中数据如下：</span><br><span class="line">		id        content</span><br><span class="line">		<span class="number">1</span>          abc</span><br><span class="line">		<span class="number">2</span>           fg</span><br><span class="line">		<span class="number">3</span>          ahu</span><br><span class="line">		<span class="number">4</span>          bgf</span><br><span class="line">使用id=<span class="number">2</span>进行索引查找fg。</span><br><span class="line">select from table where id=<span class="number">2</span>;</span><br><span class="line">即可查询到相应的值。</span><br></pre></td></tr></table></figure>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">现在我们可以根据数据库表中的id可以查询对应的值，但是有一些问题，</span><br><span class="line">当我们想要查询fg值的id是多少或者我们想要知道哪些conten中含有a（或者b）。</span><br><span class="line">这就是我们日常生活中经常使用的一个算法：当你搜索一首歌时，你可以不知道它的全名，</span><br><span class="line">但是当你输入其中一部分文字时，音乐平台会自动提示或者推荐了一些相似的歌名。</span><br></pre></td></tr></table></figure>
+<h3 id="解决问题的算法—–倒排索引算法"><a href="#解决问题的算法—–倒排索引算法" class="headerlink" title="解决问题的算法—–倒排索引算法"></a>解决问题的算法—–倒排索引算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">思路：（通俗的理解）</span><br><span class="line">		上述中的表table：</span><br><span class="line">			   id        content</span><br><span class="line">				<span class="number">1</span>          abc</span><br><span class="line">				<span class="number">2</span>           fg</span><br><span class="line">				<span class="number">3</span>          ahu</span><br><span class="line">				<span class="number">4</span>          bgf</span><br><span class="line">		我们的目的：通过content值或者content值中的某个字母查找对应的id</span><br><span class="line">		我们是不是可以根据上述的表table模拟出为下面的表table1：</span><br><span class="line">				content     id</span><br><span class="line">					a       <span class="number">1</span>,<span class="number">3</span></span><br><span class="line">					b       <span class="number">1</span>,<span class="number">4</span></span><br><span class="line">					c       <span class="number">1</span></span><br><span class="line">					f       <span class="number">2</span>,<span class="number">4</span></span><br><span class="line">					g       <span class="number">2</span>,<span class="number">4</span></span><br><span class="line">					h       <span class="number">3</span></span><br><span class="line">		模拟分析：新建表是按照字母作为索引进行新建，将之前table中的content值按照content值中含有的字母进行分类，比如</span><br><span class="line">		第一个content索引值为a，之前的table表中含有a的content</span><br><span class="line">有id=<span class="number">1</span>（abc）,id=<span class="number">3</span>(ahu)。</span><br><span class="line"></span><br><span class="line">这就是倒排索引算法的思路。</span><br></pre></td></tr></table></figure>
+<h3 id="倒排索引-1"><a href="#倒排索引-1" class="headerlink" title="倒排索引"></a>倒排索引</h3><blockquote>
+<p>倒排索引也叫反向索引，倒序索引。</p>
+</blockquote>
+<h3 id="倒排索引的使用场景"><a href="#倒排索引的使用场景" class="headerlink" title="倒排索引的使用场景"></a>倒排索引的使用场景</h3><ul>
+<li>全局搜索：比如在整个数据库中查找单词word</li>
+<li>模糊查询</li>
+<li>关键字查询</li>
+</ul>
+<h3 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h3><p><a href="https://blog.csdn.net/qq_40910541" target="_blank" rel="noopener">我的CSDN</a></p>
+<p><a href="github.com/RuiDer">我的GitHub</a></p>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">倒排索引</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/09/倒排索引/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基本数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1030,97 +1132,6 @@
 
 
   
-    <article id="post-CurrentHashMap与HashTable锁范围的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header" style="font-size:200%; text-align:center">
-        
-        
-        <a href="/2018/06/19/CurrentHashMap与HashTable锁范围的区别/" class="archive-article-date">
-  	<time datetime="2018-06-19T09:06:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
-</a>
-        
-
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ConcurrentHashMap和Hashtable锁的范围区别"><a href="#ConcurrentHashMap和Hashtable锁的范围区别" class="headerlink" title="ConcurrentHashMap和Hashtable锁的范围区别"></a><center>ConcurrentHashMap和Hashtable锁的范围区别</center></h1><hr>
-<blockquote>
-<p>因为热爱，所以拼搏。         –RuiDer</p>
-</blockquote>
-<hr>
-<h4 id="Hashtable和ConcurrentHashMap有什么分别呢？"><a href="#Hashtable和ConcurrentHashMap有什么分别呢？" class="headerlink" title="Hashtable和ConcurrentHashMap有什么分别呢？"></a>Hashtable和ConcurrentHashMap有什么分别呢？</h4><p>它们都可以用于多线程的环境，但是当Hashtable的大小增加到一定的时候，性能会急剧下降，因为迭代时需要被锁定很长的时间。因为ConcurrentHashMap引入了分割(segmentation)，不论它变得多么大，仅仅需要锁定map的某个部分，而其它的线程不需要等到迭代完成才能访问map。简而言之，在迭代的过程中，ConcurrentHashMap仅仅锁定map的某个部分，而Hashtable则会锁定整个map。</p>
-
-      
-
-      
-	
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ConcurrentHashMap和Hashtable</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">锁</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/19/CurrentHashMap与HashTable锁范围的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1224,11 +1235,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Remove</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ConcurrentHashMap和Hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">锁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,7 +1279,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java事务管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">N+1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1265,14 +1304,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">N+1</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1308,23 +1339,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java事务管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Remove</a>
+                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
               </li>
             
             <div class="clearfix"></div>
