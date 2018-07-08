@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java事务管理 | RuiDer的博客</title>
+  <title>Tag: 高并发 | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java事务管理 因为热爱，所以拼搏。           –RuiDer  事务12345事务是什么？	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，	事务相当重要。 事务原则12345数据库事务遵从ACID原则。A：原子性，automic">
-<meta name="keywords" content="JDBC,Java事务管理">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java事务管理">
-<meta property="og:url" content="http://yoursite.com/2018/06/21/Java事务管理/index.html">
+  <meta name="description" content="我看好自己的认真。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RuiDer的博客">
+<meta property="og:url" content="http://yoursite.com/tags/高并发/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="Java事务管理 因为热爱，所以拼搏。           –RuiDer  事务12345事务是什么？	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，	事务相当重要。 事务原则12345数据库事务遵从ACID原则。A：原子性，automic">
+<meta property="og:description" content="我看好自己的认真。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-22T03:46:57.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java事务管理">
-<meta name="twitter:description" content="Java事务管理 因为热爱，所以拼搏。           –RuiDer  事务12345事务是什么？	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，	事务相当重要。 事务原则12345数据库事务遵从ACID原则。A：原子性，automic">
+<meta name="twitter:title" content="RuiDer的博客">
+<meta name="twitter:description" content="我看好自己的认真。">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
   
@@ -169,256 +167,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java事务管理" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header" style="font-size:200%; text-align:center">
-        
-        
-        <a href="/2018/06/21/Java事务管理/" class="archive-article-date">
-  	<time datetime="2018-06-21T14:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-21</time>
-</a>
-        
-
-	
-		<span class="archive-article-date">
-			阅读量 <span id="busuanzi_value_page_pv"></span>
-		</span>
-	
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java事务管理"><a href="#Java事务管理" class="headerlink" title="Java事务管理"></a><center>Java事务管理</center></h1><hr>
-<p>因为热爱，所以拼搏。           –<a href="ruider.github.io">RuiDer</a></p>
-<hr>
-<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事务是什么？</span><br><span class="line">	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，</span><br><span class="line">	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。</span><br><span class="line">	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，</span><br><span class="line">	事务相当重要。</span><br></pre></td></tr></table></figure>
-<h3 id="事务原则"><a href="#事务原则" class="headerlink" title="事务原则"></a>事务原则</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数据库事务遵从ACID原则。</span><br><span class="line">A：原子性，automicty，一次操作对某一数据的修改在事务失败后恢复原来的数据</span><br><span class="line">C：一致性，一次操作失败后与被修改的数据有关的所有数据恢复原来的数据</span><br><span class="line">I：隔离性：一次操作进行的时候，对于其他数据，被修改的数据是不可见的。</span><br><span class="line">D：持久性，一次操作失败后，数据库的所有数据必须保持正确。</span><br></pre></td></tr></table></figure>
-<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事务管理在现实生活中被常用，比如两个人在线转money，</span><br><span class="line">A给B转钱，其中B突然断网，那么正在交易的现金就会出现问题：</span><br><span class="line">A少了钱，B的钱没有增加。这时就需要事务管理来处理了！！！</span><br><span class="line"></span><br><span class="line">解决方案：加入事务管理，当事务失败后，原有数据恢复。</span><br></pre></td></tr></table></figure>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>俺的微信，欢迎关注<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/微信1.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
         </div>
-      
-	
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/08/乐观锁及乐观锁的实现/" class="archive-article-date">
+  	<time datetime="2018-07-08T06:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name" style="color:blue; text-align:center">
+      <a class="archive-article-title" href="/2018/07/08/乐观锁及乐观锁的实现/">乐观锁及乐观锁的实现</a>
+    </h1>
+  
+
+
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">高并发</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java事务管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">乐观锁</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/21/Java事务管理/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/06/22/JNDI简单理解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JNDI简单理解
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/06/19/HashTable与HashMap的瓶颈/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HashTable与HashMap的瓶颈</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java事务管理"><span class="toc-number">1.</span> <span class="toc-text">Java事务管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">1.0.1.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务原则"><span class="toc-number">1.0.2.</span> <span class="toc-text">事务原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举例说明"><span class="toc-number">1.0.3.</span> <span class="toc-text">举例说明</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Java事务管理" data-title="Java事务管理" data-url="http://yoursite.com/2018/06/21/Java事务管理/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2018/06/21/Java事务管理/", 
-    sourceId: "Java事务管理",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Java事务管理" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytEXJXBR",
-        conf: "beedba70f251257d2c14eaad03d30886"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -447,9 +265,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

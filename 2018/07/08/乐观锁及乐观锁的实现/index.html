@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java事务管理 | RuiDer的博客</title>
+  <title>乐观锁及乐观锁的实现 | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java事务管理 因为热爱，所以拼搏。           –RuiDer  事务12345事务是什么？	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，	事务相当重要。 事务原则12345数据库事务遵从ACID原则。A：原子性，automic">
-<meta name="keywords" content="JDBC,Java事务管理">
+  <meta name="description" content="乐观锁  因为热爱，所以拼搏。         –RuiDer  前导必备 Java并发锁的含义 悲观锁 数据库高并发1234567	高并发简单理解就是在服务器中，成千上完个客户端在同一时间内发起对服务器端的请求，包括数据的请求，这时服务器后端需要在极短时内处理客户端的请求并且响应，在互联网平台，追求的是速度和时间，所以，这就对服务器端有非常大的考验。	一般客户端发起请求，服务器端接到请求，首先去">
+<meta name="keywords" content="高并发,乐观锁">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java事务管理">
-<meta property="og:url" content="http://yoursite.com/2018/06/21/Java事务管理/index.html">
+<meta property="og:title" content="乐观锁及乐观锁的实现">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/乐观锁及乐观锁的实现/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="Java事务管理 因为热爱，所以拼搏。           –RuiDer  事务12345事务是什么？	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，	事务相当重要。 事务原则12345数据库事务遵从ACID原则。A：原子性，automic">
+<meta property="og:description" content="乐观锁  因为热爱，所以拼搏。         –RuiDer  前导必备 Java并发锁的含义 悲观锁 数据库高并发1234567	高并发简单理解就是在服务器中，成千上完个客户端在同一时间内发起对服务器端的请求，包括数据的请求，这时服务器后端需要在极短时内处理客户端的请求并且响应，在互联网平台，追求的是速度和时间，所以，这就对服务器端有非常大的考验。	一般客户端发起请求，服务器端接到请求，首先去">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-22T03:46:57.358Z">
+<meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&fm=27&gp=0.jpg">
+<meta property="og:updated_time" content="2018-07-08T06:37:50.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java事务管理">
-<meta name="twitter:description" content="Java事务管理 因为热爱，所以拼搏。           –RuiDer  事务12345事务是什么？	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，	事务相当重要。 事务原则12345数据库事务遵从ACID原则。A：原子性，automic">
+<meta name="twitter:title" content="乐观锁及乐观锁的实现">
+<meta name="twitter:description" content="乐观锁  因为热爱，所以拼搏。         –RuiDer  前导必备 Java并发锁的含义 悲观锁 数据库高并发1234567	高并发简单理解就是在服务器中，成千上完个客户端在同一时间内发起对服务器端的请求，包括数据的请求，这时服务器后端需要在极短时内处理客户端的请求并且响应，在互联网平台，追求的是速度和时间，所以，这就对服务器端有非常大的考验。	一般客户端发起请求，服务器端接到请求，首先去">
+<meta name="twitter:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&fm=27&gp=0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
   
@@ -169,14 +171,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java事务管理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-乐观锁及乐观锁的实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header" style="font-size:200%; text-align:center">
         
         
-        <a href="/2018/06/21/Java事务管理/" class="archive-article-date">
-  	<time datetime="2018-06-21T14:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-21</time>
+        <a href="/2018/07/08/乐观锁及乐观锁的实现/" class="archive-article-date">
+  	<time datetime="2018-07-08T06:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
 </a>
         
 
@@ -189,12 +191,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java事务管理"><a href="#Java事务管理" class="headerlink" title="Java事务管理"></a><center>Java事务管理</center></h1><hr>
-<p>因为热爱，所以拼搏。           –<a href="ruider.github.io">RuiDer</a></p>
+        <h1 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a><center>乐观锁</center></h1><p><center><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&amp;fm=27&amp;gp=0.jpg" alt=""></center></p>
 <hr>
-<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事务是什么？</span><br><span class="line">	事务一般而言是相对数据库而言的，对于数据库一次操作就属于一个事务，</span><br><span class="line">	一次操作可以是几句sql语句，也可以是几句JDBC的Java语句。</span><br><span class="line">	一次操作的成败直接影响数据库的数据以及与被修改数据有关的数据。所以，</span><br><span class="line">	事务相当重要。</span><br></pre></td></tr></table></figure>
-<h3 id="事务原则"><a href="#事务原则" class="headerlink" title="事务原则"></a>事务原则</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数据库事务遵从ACID原则。</span><br><span class="line">A：原子性，automicty，一次操作对某一数据的修改在事务失败后恢复原来的数据</span><br><span class="line">C：一致性，一次操作失败后与被修改的数据有关的所有数据恢复原来的数据</span><br><span class="line">I：隔离性：一次操作进行的时候，对于其他数据，被修改的数据是不可见的。</span><br><span class="line">D：持久性，一次操作失败后，数据库的所有数据必须保持正确。</span><br></pre></td></tr></table></figure>
-<h3 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">事务管理在现实生活中被常用，比如两个人在线转money，</span><br><span class="line">A给B转钱，其中B突然断网，那么正在交易的现金就会出现问题：</span><br><span class="line">A少了钱，B的钱没有增加。这时就需要事务管理来处理了！！！</span><br><span class="line"></span><br><span class="line">解决方案：加入事务管理，当事务失败后，原有数据恢复。</span><br></pre></td></tr></table></figure>
+<p>因为热爱，所以拼搏。         –<a href="ruider.github.io">RuiDer</a></p>
+<hr>
+<h3 id="前导必备"><a href="#前导必备" class="headerlink" title="前导必备"></a>前导必备</h3><ul>
+<li>Java并发锁的含义</li>
+<li>悲观锁</li>
+<li>数据库<h3 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	高并发简单理解就是在服务器中，成千上完个客户端在同一时间内发</span><br><span class="line">起对服务器端的请求，包括数据的请求，这时服务器后端需要在极短时内处</span><br><span class="line">理客户端的请求并且响应，在互联网平台，追求的是速度和时间，所以，</span><br><span class="line">这就对服务器端有非常大的考验。</span><br><span class="line">	一般客户端发起请求，服务器端接到请求，首先去处理相应的数据，</span><br><span class="line">这就涉及到数据库中的数据操作，或者是缓存中的数据处理，总之要与数据库打交道。</span><br><span class="line">操作数据库数据包括数据的查询，编辑，更新等。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="高并发产生的问题"><a href="#高并发产生的问题" class="headerlink" title="高并发产生的问题"></a>高并发产生的问题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   不同的线程在同一时间对同一数据的读取和更新产生冲突。可能会出现线程A读取</span><br><span class="line">的数据不是最新值，线程B更新的数据覆盖其他线程对该数据的更新。这些问题</span><br><span class="line">都是高并发带来的，即高并发产生的问题。</span><br><span class="line">高并发冲突分类：</span><br><span class="line">	- 数据丢失</span><br><span class="line">	- 脏读</span><br></pre></td></tr></table></figure>
+<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Java提供锁的支持，通俗的理解就是锁对某些数据具有保护作用，防止某一数据在同一时间</span><br><span class="line">被多个线程操作。</span><br><span class="line">锁的分类：</span><br><span class="line">	- 悲观锁：持保守态度，只能由某一个线程持有，其他线程等待持有锁的线程释放锁。性能差</span><br><span class="line">	- 乐观锁：下面讲</span><br><span class="line">	- 其他锁：像自旋锁，轻量级锁等</span><br></pre></td></tr></table></figure>
+<h3 id="乐观锁概念"><a href="#乐观锁概念" class="headerlink" title="乐观锁概念"></a>乐观锁概念</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	对于每一个数据或者数据集合，设有一个标识version（字段），</span><br><span class="line">当线程读取数据时，同时会读取出标识版本version的值，进行更</span><br><span class="line">新时，首先比较当前数据库字段version的值是否与读取出的</span><br><span class="line">version值相等，如果相等，则更新值，否则，作为过期值丢弃。</span><br></pre></td></tr></table></figure>
+<h3 id="乐观锁的实现"><a href="#乐观锁的实现" class="headerlink" title="乐观锁的实现"></a>乐观锁的实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">实现一：</span><br><span class="line">		比如一个数据库表的结构是</span><br><span class="line">		id value version三个字段</span><br><span class="line">		当进行数据的更新时，首先读取：</span><br><span class="line">		select value version from table where id=x;</span><br><span class="line">		其次更新：</span><br><span class="line">			update table set value=newValue, version=oldVersion+<span class="number">1</span> where id=x and version=oldVersion;</span><br><span class="line"></span><br><span class="line">实现二：</span><br><span class="line">	cas算法：Compare And Swap算法，即有三个值，内存值，预期旧值，新值，</span><br><span class="line">比较内存值是否与当前预期值相等，如果相等，则替换新值，否则，不做任何处理。</span><br></pre></td></tr></table></figure>
+<h3 id="about-me"><a href="#about-me" class="headerlink" title="about me"></a>about me</h3><p><a href="ruider.github.io">我的博客</a></p>
+<p><a href="https://blog.csdn.net/qq_40910541" target="_blank" rel="noopener">我的CSDN</a></p>
 
       
 
@@ -235,11 +247,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDBC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">高并发</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java事务管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">乐观锁</a>
         		</li>
       		
 		</ul>
@@ -251,7 +263,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
@@ -306,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/21/Java事务管理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/08/乐观锁及乐观锁的实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +332,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/22/JNDI简单理解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JNDI简单理解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/19/HashTable与HashMap的瓶颈/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HashTable与HashMap的瓶颈</div>
+    <a href="/2018/06/26/Mybatis缓存/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mybatis缓存</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -358,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java事务管理"><span class="toc-number">1.</span> <span class="toc-text">Java事务管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">1.0.1.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务原则"><span class="toc-number">1.0.2.</span> <span class="toc-text">事务原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#举例说明"><span class="toc-number">1.0.3.</span> <span class="toc-text">举例说明</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#乐观锁"><span class="toc-number">1.</span> <span class="toc-text">乐观锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前导必备"><span class="toc-number">1.0.1.</span> <span class="toc-text">前导必备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高并发"><span class="toc-number">1.0.2.</span> <span class="toc-text">高并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高并发产生的问题"><span class="toc-number">1.0.3.</span> <span class="toc-text">高并发产生的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁"><span class="toc-number">1.0.4.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乐观锁概念"><span class="toc-number">1.0.5.</span> <span class="toc-text">乐观锁概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乐观锁的实现"><span class="toc-number">1.0.6.</span> <span class="toc-text">乐观锁的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#about-me"><span class="toc-number">1.0.7.</span> <span class="toc-text">about me</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -372,7 +375,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Java事务管理" data-title="Java事务管理" data-url="http://yoursite.com/2018/06/21/Java事务管理/"></div>
+	<div class="ds-thread" data-thread-key="乐观锁及乐观锁的实现" data-title="乐观锁及乐观锁的实现" data-url="http://yoursite.com/2018/07/08/乐观锁及乐观锁的实现/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -395,8 +398,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2018/06/21/Java事务管理/", 
-    sourceId: "Java事务管理",
+    url: "http://yoursite.com/2018/07/08/乐观锁及乐观锁的实现/", 
+    sourceId: "乐观锁及乐观锁的实现",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -405,7 +408,7 @@
   
 
   
-  <div id="SOHUCS" sid="Java事务管理" ></div> 
+  <div id="SOHUCS" sid="乐观锁及乐观锁的实现" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
