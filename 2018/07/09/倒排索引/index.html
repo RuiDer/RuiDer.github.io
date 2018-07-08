@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>倒排索引 | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="# 倒排索引   因为热爱，所以拼搏。         –RuiDer  前导必备 Java基础 数据库  正常索引使用123456789比如一张数据库表table，有id和content两个字段，表中数据如下：		id        content		1          abc		2           fg		3          ahu		4          bgf使用id=2进行索引查">
+  <meta name="description" content="倒排索引   因为热爱，所以拼搏。         –RuiDer  前导必备 Java基础 数据库  正常索引使用123456789比如一张数据库表table，有id和content两个字段，表中数据如下：		id        content		1          abc		2           fg		3          ahu		4          bgf使用id=2进行索引查找f">
 <meta name="keywords" content="倒排索引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="倒排索引">
 <meta property="og:url" content="http://yoursite.com/2018/07/09/倒排索引/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="# 倒排索引   因为热爱，所以拼搏。         –RuiDer  前导必备 Java基础 数据库  正常索引使用123456789比如一张数据库表table，有id和content两个字段，表中数据如下：		id        content		1          abc		2           fg		3          ahu		4          bgf使用id=2进行索引查">
+<meta property="og:description" content="倒排索引   因为热爱，所以拼搏。         –RuiDer  前导必备 Java基础 数据库  正常索引使用123456789比如一张数据库表table，有id和content两个字段，表中数据如下：		id        content		1          abc		2           fg		3          ahu		4          bgf使用id=2进行索引查找f">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&fm=27&gp=0.jpg">
-<meta property="og:updated_time" content="2018-07-08T16:28:09.982Z">
+<meta property="og:updated_time" content="2018-07-08T16:30:28.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="倒排索引">
-<meta name="twitter:description" content="# 倒排索引   因为热爱，所以拼搏。         –RuiDer  前导必备 Java基础 数据库  正常索引使用123456789比如一张数据库表table，有id和content两个字段，表中数据如下：		id        content		1          abc		2           fg		3          ahu		4          bgf使用id=2进行索引查">
+<meta name="twitter:description" content="倒排索引   因为热爱，所以拼搏。         –RuiDer  前导必备 Java基础 数据库  正常索引使用123456789比如一张数据库表table，有id和content两个字段，表中数据如下：		id        content		1          abc		2           fg		3          ahu		4          bgf使用id=2进行索引查找f">
 <meta name="twitter:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&fm=27&gp=0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
@@ -191,7 +191,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center># 倒排索引</center><br><center><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&amp;fm=27&amp;gp=0.jpg" alt=""></center>
+        <h1 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a><center>倒排索引</center></h1><center><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&amp;fm=27&amp;gp=0.jpg" alt=""></center>
 
 <hr>
 <p>因为热爱，所以拼搏。         –<a href="ruider.github.io">RuiDer</a></p>
@@ -203,7 +203,7 @@
 <h3 id="正常索引使用"><a href="#正常索引使用" class="headerlink" title="正常索引使用"></a>正常索引使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">比如一张数据库表table，有id和content两个字段，表中数据如下：</span><br><span class="line">		id        content</span><br><span class="line">		<span class="number">1</span>          abc</span><br><span class="line">		<span class="number">2</span>           fg</span><br><span class="line">		<span class="number">3</span>          ahu</span><br><span class="line">		<span class="number">4</span>          bgf</span><br><span class="line">使用id=<span class="number">2</span>进行索引查找fg。</span><br><span class="line">select from table where id=<span class="number">2</span>;</span><br><span class="line">即可查询到相应的值。</span><br></pre></td></tr></table></figure>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">现在我们可以根据数据库表中的id可以查询对应的值，但是有一些问题，</span><br><span class="line">当我们想要查询fg值的id是多少或者我们想要知道哪些conten中含有a（或者b）。</span><br><span class="line">这就是我们日常生活中经常使用的一个算法：当你搜索一首歌时，你可以不知道它的全名，</span><br><span class="line">但是当你输入其中一部分文字时，音乐平台会自动提示或者推荐了一些相似的歌名。</span><br></pre></td></tr></table></figure>
 <h3 id="解决问题的算法—–倒排索引算法"><a href="#解决问题的算法—–倒排索引算法" class="headerlink" title="解决问题的算法—–倒排索引算法"></a>解决问题的算法—–倒排索引算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">思路：（通俗的理解）</span><br><span class="line">		上述中的表table：</span><br><span class="line">			   id        content</span><br><span class="line">				<span class="number">1</span>          abc</span><br><span class="line">				<span class="number">2</span>           fg</span><br><span class="line">				<span class="number">3</span>          ahu</span><br><span class="line">				<span class="number">4</span>          bgf</span><br><span class="line">		我们的目的：通过content值或者content值中的某个字母查找对应的id</span><br><span class="line">		我们是不是可以根据上述的表table模拟出为下面的表table1：</span><br><span class="line">				content     id</span><br><span class="line">					a       <span class="number">1</span>,<span class="number">3</span></span><br><span class="line">					b       <span class="number">1</span>,<span class="number">4</span></span><br><span class="line">					c       <span class="number">1</span></span><br><span class="line">					f       <span class="number">2</span>,<span class="number">4</span></span><br><span class="line">					g       <span class="number">2</span>,<span class="number">4</span></span><br><span class="line">					h       <span class="number">3</span></span><br><span class="line">		模拟分析：新建表是按照字母作为索引进行新建，将之前table中的content值按照content值中含有的字母进行分类，比如</span><br><span class="line">		第一个content索引值为a，之前的table表中含有a的content</span><br><span class="line">有id=<span class="number">1</span>（abc）,id=<span class="number">3</span>(ahu)。</span><br><span class="line"></span><br><span class="line">这就是倒排索引算法的思路。</span><br></pre></td></tr></table></figure>
-<h3 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h3><blockquote>
+<h3 id="倒排索引-1"><a href="#倒排索引-1" class="headerlink" title="倒排索引"></a>倒排索引</h3><blockquote>
 <p>倒排索引也叫反向索引，倒序索引。</p>
 </blockquote>
 <h3 id="倒排索引的使用场景"><a href="#倒排索引的使用场景" class="headerlink" title="倒排索引的使用场景"></a>倒排索引的使用场景</h3><ul>
@@ -363,7 +363,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前导必备"><span class="toc-number">1.</span> <span class="toc-text">前导必备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正常索引使用"><span class="toc-number">2.</span> <span class="toc-text">正常索引使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">3.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决问题的算法—–倒排索引算法"><span class="toc-number">4.</span> <span class="toc-text">解决问题的算法—–倒排索引算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒排索引"><span class="toc-number">5.</span> <span class="toc-text">倒排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒排索引的使用场景"><span class="toc-number">6.</span> <span class="toc-text">倒排索引的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-Me"><span class="toc-number">7.</span> <span class="toc-text">About Me</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#倒排索引"><span class="toc-number">1.</span> <span class="toc-text">倒排索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前导必备"><span class="toc-number">1.0.1.</span> <span class="toc-text">前导必备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正常索引使用"><span class="toc-number">1.0.2.</span> <span class="toc-text">正常索引使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">1.0.3.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决问题的算法—–倒排索引算法"><span class="toc-number">1.0.4.</span> <span class="toc-text">解决问题的算法—–倒排索引算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒排索引-1"><span class="toc-number">1.0.5.</span> <span class="toc-text">倒排索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒排索引的使用场景"><span class="toc-number">1.0.6.</span> <span class="toc-text">倒排索引的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-Me"><span class="toc-number">1.0.7.</span> <span class="toc-text">About Me</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -522,18 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ConcurrentHashMap和Hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">锁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HashTable与HashMap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -546,11 +534,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
+                <a href="javascript:void(0)" class="js-tag color3">ConcurrentHashMap和Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">锁</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HashTable与HashMap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +566,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Java基本数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDBC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java事务管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Java基本数据类型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,15 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,10 +599,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">畅言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,6 +615,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">不蒜子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
