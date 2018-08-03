@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: hexo教程 | RuiDer的博客</title>
+  <title>Redis | RuiDer的博客</title>
   <meta name="viewport/usr/local/my_blog/themes/yilia/layout/_partial" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我看好自己的认真。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RuiDer的博客">
-<meta property="og:url" content="http://yoursite.com/categories/hexo/index.html">
+  <meta name="description" content="Redis简单理解  好久不来，甚是想念。            –[RuiDer]  before Java基础 JDBC数据库Redis1234Redis:一款NoSql技术，面向Java Web。它就是一个简单的基于内存的数据库，并提供持久化服务。Redis和MongoDB是当前使用最广泛的NoSql，主要应对每秒几十万的读写操作，其性能远远超过数据库。并且在高并发下保证数据的一致性和安全性">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/Redis/index.html">
 <meta property="og:site_name" content="RuiDer的博客">
-<meta property="og:description" content="我看好自己的认真。">
+<meta property="og:description" content="Redis简单理解  好久不来，甚是想念。            –[RuiDer]  before Java基础 JDBC数据库Redis1234Redis:一款NoSql技术，面向Java Web。它就是一个简单的基于内存的数据库，并提供持久化服务。Redis和MongoDB是当前使用最广泛的NoSql，主要应对每秒几十万的读写操作，其性能远远超过数据库。并且在高并发下保证数据的一致性和安全性">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&fm=27&gp=0.jpg">
+<meta property="og:updated_time" content="2018-08-03T10:09:57.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RuiDer的博客">
-<meta name="twitter:description" content="我看好自己的认真。">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="Redis简单理解  好久不来，甚是想念。            –[RuiDer]  before Java基础 JDBC数据库Redis1234Redis:一款NoSql技术，面向Java Web。它就是一个简单的基于内存的数据库，并提供持久化服务。Redis和MongoDB是当前使用最广泛的NoSql，主要应对每秒几十万的读写操作，其性能远远超过数据库。并且在高并发下保证数据的一致性和安全性">
+<meta name="twitter:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&fm=27&gp=0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="RuiDer的博客" type="application/atom+xml">
   
@@ -167,131 +171,259 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Redis" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/11/hexo-yilia主题添加评论/" class="archive-article-date">
-  	<time datetime="2018-06-11T09:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/08/03/Redis/" class="archive-article-date">
+  	<time datetime="2018-08-03T10:07:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
 </a>
+        
+
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Redis简单理解"><a href="#Redis简单理解" class="headerlink" title="Redis简单理解"></a><center>Redis简单理解<center></center></center></h1><p><center><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&amp;fm=27&amp;gp=0.jpg" alt=""></center></p>
+<hr>
+<p>好久不来，甚是想念。            –[RuiDer]</p>
+<hr>
+<h3 id="before"><a href="#before" class="headerlink" title="before"></a>before</h3><ul>
+<li>Java基础</li>
+<li>JDBC数据库<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Redis:一款NoSql技术，面向Java Web。它就是一个简单的基于内存的数据库，</span><br><span class="line">并提供持久化服务。Redis和MongoDB是当前使用最广泛的NoSql，主要应对每秒</span><br><span class="line">几十万的读写操作，其性能远远超过数据库。并且在高并发下保证数据的一致性和</span><br><span class="line">安全性。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Redis优势"><a href="#Redis优势" class="headerlink" title="Redis优势"></a>Redis优势</h3><ul>
+<li>使用ANSI C语言完成，接近汇编语言，运行速度快</li>
+<li>基于内存读/写，读写速度相当快。</li>
+<li>支持6种数据结构，分别是字符串String，链表List，集合Set，散列hash，和基数HyperLogLog，以及有序集合Zset，规则相对较少，处理快。</li>
+</ul>
+<p>综上优势，Redis的读写速度更快。。</p>
+<h3 id="Redis使用"><a href="#Redis使用" class="headerlink" title="Redis使用"></a>Redis使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Redis的使用有两种方式：</span><br><span class="line">	- 与Spring结合Spring-Data-Redis</span><br><span class="line">	- Jedis操作Redis的数据读写</span><br><span class="line">两种方式的使用截然不同。</span><br></pre></td></tr></table></figure>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">持久化数据库的缺点与优点：</span><br><span class="line">	-数据从数据库读取也就是索引磁盘速度慢</span><br><span class="line">	-数据写如数据库速度还说的过去</span><br><span class="line">在Java Web领域，对于数据库的操作读的操作远超过写的操作，一般是<span class="number">1</span>:<span class="number">9</span>到<span class="number">3</span>:<span class="number">7</span> 的比例。对于</span><br><span class="line">数据库中的数据，读取操作会直接进行整个磁盘的索引，而索引整个磁盘的速度是非常慢的，但是</span><br><span class="line">读取内存的速度就不一样了，会非常速度。</span><br><span class="line"></span><br><span class="line">缓存的缺点：</span><br><span class="line">	磁盘的容量一般是TGB级别，不同于内存的小容量一般是GB级别，容量有限，而且磁盘十分</span><br><span class="line">	廉价，内存价格也比磁盘昂贵。</span><br></pre></td></tr></table></figure>
+<h3 id="何时使用缓存Redis"><a href="#何时使用缓存Redis" class="headerlink" title="何时使用缓存Redis"></a>何时使用缓存Redis</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">因为缓存基于内存，内存空间有限，价格高贵，所以应该有条件限制</span><br><span class="line">使用Redis的条件：</span><br><span class="line">	- 数据使用频繁，读取操作多于写操作</span><br><span class="line">	- 业务数据经常被使用吗？命中率如何？</span><br><span class="line">	- 业务数据大小如何？</span><br><span class="line">一般而言，缓存的作用主要用于存储一些常用的数据，</span><br><span class="line">比如用户登录信息，银行卡信息等。。</span><br></pre></td></tr></table></figure>
+<h3 id="Redis缓存简单原理"><a href="#Redis缓存简单原理" class="headerlink" title="Redis缓存简单原理"></a>Redis缓存简单原理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用缓存是因为缓存的读取速度快，而考虑到写操作时，数据库的写操作与其速度差不到那去，</span><br><span class="line">所以直接考虑缓存的读取操作</span><br><span class="line">- 当第一次读取数据时，首先检测Redis中是否含有该数据</span><br><span class="line">- 如果有直接读取</span><br><span class="line">- 如果没有，从数据库读取，写入Redis</span><br><span class="line">- 第二遍读取数据时，直接从缓存中读取了</span><br></pre></td></tr></table></figure>
+<h3 id="高速读-写场合"><a href="#高速读-写场合" class="headerlink" title="高速读/写场合"></a>高速读/写场合</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在互联网行业，对于高并发业务，比如秒杀和抢红包这些业务，</span><br><span class="line">需要高质量的缓存机制相应千万级别的访问量。如果使用数据库，</span><br><span class="line">数据库每秒处理万级别的sql语句，简直是异想天开，有时会使数据库瘫痪，甚至有时</span><br><span class="line">会使服务器奔溃。</span><br><span class="line">	在这样的场合一般考虑使用异步写入数据库。</span><br></pre></td></tr></table></figure>
+<h3 id="异步写入数据库"><a href="#异步写入数据库" class="headerlink" title="异步写入数据库"></a>异步写入数据库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	对于高速读/写场合中单单使用Redis的场景，把这些需要高速读/写的数据，</span><br><span class="line">缓存到Redis中，而在满足一定条件时，触发这些缓存的数据写入数据库中去。</span><br><span class="line">	细细解释一下这个问题，当一个请求发送数据当服务器时，一开始存储数据是</span><br><span class="line">Redis缓存，没有进行任何关于数据库的操作，但是缓存不能持久化，因此需要</span><br><span class="line">需要把这些数据存入数据库，因此会在一定条件时判断一个请求是否结束，一旦结束，</span><br><span class="line">就会将缓存中的数据更新到数据库。而这个条件就像秒杀或者抢红包业务中红包数量</span><br><span class="line">是否为<span class="number">0</span>，如果为空，一次性写入数据库，完成持久化工作。</span><br></pre></td></tr></table></figure>
+<h3 id="After"><a href="#After" class="headerlink" title="After"></a>After</h3><p><a href="https://blog.csdn.net/qq_40910541" target="_blank" rel="noopener">我的CSDN</a><br><a href="https://github.com/RuiDer" target="_blank" rel="noopener">我的GitHub</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>俺的微信，欢迎关注<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/微信1.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/11/hexo-yilia主题添加评论/">hexo+yilia主题添加评论</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo+yilia主题添加评论</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">畅言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color2">hexo教程</a>
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/Redis/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/11/添加hexo-yilia主题的访问数量/" class="archive-article-date">
-  	<time datetime="2018-06-11T08:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/09/倒排索引/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">倒排索引</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name" style="color:blue; text-align:center">
-      <a class="archive-article-title" href="/2018/06/11/添加hexo-yilia主题的访问数量/">hexo+yilia主题的添加访问数量</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo yilia主题添加文章访问量统计</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">不蒜子</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color2">hexo教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis简单理解"><span class="toc-number">1.</span> <span class="toc-text">Redis简单理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#before"><span class="toc-number">1.0.1.</span> <span class="toc-text">before</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis"><span class="toc-number">1.0.2.</span> <span class="toc-text">Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis优势"><span class="toc-number">1.0.3.</span> <span class="toc-text">Redis优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis使用"><span class="toc-number">1.0.4.</span> <span class="toc-text">Redis使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存"><span class="toc-number">1.0.5.</span> <span class="toc-text">缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#何时使用缓存Redis"><span class="toc-number">1.0.6.</span> <span class="toc-text">何时使用缓存Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis缓存简单原理"><span class="toc-number">1.0.7.</span> <span class="toc-text">Redis缓存简单原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高速读-写场合"><span class="toc-number">1.0.8.</span> <span class="toc-text">高速读/写场合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异步写入数据库"><span class="toc-number">1.0.9.</span> <span class="toc-text">异步写入数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#After"><span class="toc-number">1.0.10.</span> <span class="toc-text">After</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Redis" data-title="Redis" data-url="http://yoursite.com/2018/08/03/Redis/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/08/03/Redis/", 
+    sourceId: "Redis",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+  <div id="SOHUCS" sid="Redis" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytEXJXBR",
+        conf: "beedba70f251257d2c14eaad03d30886"
+    });
+</script>
+</script>
+  
 
+  
+
+  
 
 
           </div>
@@ -320,10 +452,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

@@ -169,6 +169,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header" style="font-size:200%; text-align:center">
+        
+        
+        <a href="/2018/08/03/Redis/" class="archive-article-date">
+  	<time datetime="2018-08-03T10:07:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+</a>
+        
+
+	
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Redis简单理解"><a href="#Redis简单理解" class="headerlink" title="Redis简单理解"></a><center>Redis简单理解<center></center></center></h1><p><center><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=203600326,4250418979&amp;fm=27&amp;gp=0.jpg" alt=""></center></p>
+<hr>
+<p>好久不来，甚是想念。            –[RuiDer]</p>
+<hr>
+<h3 id="before"><a href="#before" class="headerlink" title="before"></a>before</h3><ul>
+<li>Java基础</li>
+<li>JDBC数据库<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Redis:一款NoSql技术，面向Java Web。它就是一个简单的基于内存的数据库，</span><br><span class="line">并提供持久化服务。Redis和MongoDB是当前使用最广泛的NoSql，主要应对每秒</span><br><span class="line">几十万的读写操作，其性能远远超过数据库。并且在高并发下保证数据的一致性和</span><br><span class="line">安全性。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Redis优势"><a href="#Redis优势" class="headerlink" title="Redis优势"></a>Redis优势</h3><ul>
+<li>使用ANSI C语言完成，接近汇编语言，运行速度快</li>
+<li>基于内存读/写，读写速度相当快。</li>
+<li>支持6种数据结构，分别是字符串String，链表List，集合Set，散列hash，和基数HyperLogLog，以及有序集合Zset，规则相对较少，处理快。</li>
+</ul>
+<p>综上优势，Redis的读写速度更快。。</p>
+<h3 id="Redis使用"><a href="#Redis使用" class="headerlink" title="Redis使用"></a>Redis使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Redis的使用有两种方式：</span><br><span class="line">	- 与Spring结合Spring-Data-Redis</span><br><span class="line">	- Jedis操作Redis的数据读写</span><br><span class="line">两种方式的使用截然不同。</span><br></pre></td></tr></table></figure>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">持久化数据库的缺点与优点：</span><br><span class="line">	-数据从数据库读取也就是索引磁盘速度慢</span><br><span class="line">	-数据写如数据库速度还说的过去</span><br><span class="line">在Java Web领域，对于数据库的操作读的操作远超过写的操作，一般是<span class="number">1</span>:<span class="number">9</span>到<span class="number">3</span>:<span class="number">7</span> 的比例。对于</span><br><span class="line">数据库中的数据，读取操作会直接进行整个磁盘的索引，而索引整个磁盘的速度是非常慢的，但是</span><br><span class="line">读取内存的速度就不一样了，会非常速度。</span><br><span class="line"></span><br><span class="line">缓存的缺点：</span><br><span class="line">	磁盘的容量一般是TGB级别，不同于内存的小容量一般是GB级别，容量有限，而且磁盘十分</span><br><span class="line">	廉价，内存价格也比磁盘昂贵。</span><br></pre></td></tr></table></figure>
+<h3 id="何时使用缓存Redis"><a href="#何时使用缓存Redis" class="headerlink" title="何时使用缓存Redis"></a>何时使用缓存Redis</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">因为缓存基于内存，内存空间有限，价格高贵，所以应该有条件限制</span><br><span class="line">使用Redis的条件：</span><br><span class="line">	- 数据使用频繁，读取操作多于写操作</span><br><span class="line">	- 业务数据经常被使用吗？命中率如何？</span><br><span class="line">	- 业务数据大小如何？</span><br><span class="line">一般而言，缓存的作用主要用于存储一些常用的数据，</span><br><span class="line">比如用户登录信息，银行卡信息等。。</span><br></pre></td></tr></table></figure>
+<h3 id="Redis缓存简单原理"><a href="#Redis缓存简单原理" class="headerlink" title="Redis缓存简单原理"></a>Redis缓存简单原理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用缓存是因为缓存的读取速度快，而考虑到写操作时，数据库的写操作与其速度差不到那去，</span><br><span class="line">所以直接考虑缓存的读取操作</span><br><span class="line">- 当第一次读取数据时，首先检测Redis中是否含有该数据</span><br><span class="line">- 如果有直接读取</span><br><span class="line">- 如果没有，从数据库读取，写入Redis</span><br><span class="line">- 第二遍读取数据时，直接从缓存中读取了</span><br></pre></td></tr></table></figure>
+<h3 id="高速读-写场合"><a href="#高速读-写场合" class="headerlink" title="高速读/写场合"></a>高速读/写场合</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在互联网行业，对于高并发业务，比如秒杀和抢红包这些业务，</span><br><span class="line">需要高质量的缓存机制相应千万级别的访问量。如果使用数据库，</span><br><span class="line">数据库每秒处理万级别的sql语句，简直是异想天开，有时会使数据库瘫痪，甚至有时</span><br><span class="line">会使服务器奔溃。</span><br><span class="line">	在这样的场合一般考虑使用异步写入数据库。</span><br></pre></td></tr></table></figure>
+<h3 id="异步写入数据库"><a href="#异步写入数据库" class="headerlink" title="异步写入数据库"></a>异步写入数据库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	对于高速读/写场合中单单使用Redis的场景，把这些需要高速读/写的数据，</span><br><span class="line">缓存到Redis中，而在满足一定条件时，触发这些缓存的数据写入数据库中去。</span><br><span class="line">	细细解释一下这个问题，当一个请求发送数据当服务器时，一开始存储数据是</span><br><span class="line">Redis缓存，没有进行任何关于数据库的操作，但是缓存不能持久化，因此需要</span><br><span class="line">需要把这些数据存入数据库，因此会在一定条件时判断一个请求是否结束，一旦结束，</span><br><span class="line">就会将缓存中的数据更新到数据库。而这个条件就像秒杀或者抢红包业务中红包数量</span><br><span class="line">是否为<span class="number">0</span>，如果为空，一次性写入数据库，完成持久化工作。</span><br></pre></td></tr></table></figure>
+<h3 id="After"><a href="#After" class="headerlink" title="After"></a>After</h3><p><a href="https://blog.csdn.net/qq_40910541" target="_blank" rel="noopener">我的CSDN</a><br><a href="https://github.com/RuiDer" target="_blank" rel="noopener">我的GitHub</a></p>
+
+      
+
+      
+	
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaEE//" class="article-tag-list-link color2">JavaEE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/03/Redis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-倒排索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1046,93 +1149,6 @@
 
 
   
-    <article id="post-HashTable与HashMap的瓶颈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header" style="font-size:200%; text-align:center">
-        
-        
-        <a href="/2018/06/19/HashTable与HashMap的瓶颈/" class="archive-article-date">
-  	<time datetime="2018-06-19T09:13:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
-</a>
-        
-
-	
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="HashTable与HashMap的瓶颈"><a href="#HashTable与HashMap的瓶颈" class="headerlink" title="HashTable与HashMap的瓶颈"></a><center>HashTable与HashMap的瓶颈</center></h1><hr>
-<blockquote>
-<p>因为热爱，所以拼搏。         –RuiDer</p>
-</blockquote>
-<hr>
-<h4 id="HashTable与HashMap的瓶颈-1"><a href="#HashTable与HashMap的瓶颈-1" class="headerlink" title="HashTable与HashMap的瓶颈"></a>HashTable与HashMap的瓶颈</h4><p>   我们知道，HashTable和HashMap的底层结构是数组与链表结合实现，Key的hashCode决定对象在数组中存储的位置，相同hashCode的key对象会放在同一个数组角标下。这是最理想的状况，但是存在另外一个问题，当所有的对象的hashCode相同时，所有对象都被放在一个角标中，数组缩为一个链表。这时，get方法本来时间复杂度为O（1）却变成了O(n),性能急剧下降。。</p>
-
-      
-
-      
-	
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashTable与HashMap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaSE//" class="article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/19/HashTable与HashMap的瓶颈/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1236,6 +1252,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1248,6 +1268,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ConcurrentHashMap和Hashtable</a>
               </li>
              
@@ -1256,27 +1280,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">DataSource</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EL表达式，JSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">HashTable与HashMap</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JNDI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EJB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1292,19 +1300,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">N+1</a>
+                <a href="javascript:void(0)" class="js-tag color4">EJB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,6 +1336,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">N+1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo yilia主题添加文章访问量统计</a>
               </li>
              
@@ -1332,15 +1360,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">倒排索引</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>
